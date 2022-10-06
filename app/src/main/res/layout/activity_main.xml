@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity"
+    android:background="@drawable/thunder"
+    >
+
+    <LinearLayout
+        android:id="@+id/linerLayout4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteY="49dp"
+        >
+
+        <LinearLayout
+            android:id="@+id/linerlayıputmenu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tesdadsd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="MENU"
+                android:textColor="@color/black"
+                android:textSize="50sp" />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:src="@drawable/sun"
+            android:contentDescription="TODO" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="71dp"
+            android:gravity="center"
+            android:text="CİTY"
+            android:textColor="@color/black"
+            android:textSize="50dp"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="53dp"
+            tools:layout_editor_absoluteY="11dp" />
+
+        <TextView
+            android:id="@+id/textViewTempeture"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="20,1"
+            android:textColor="@color/black"
+            android:textSize="50dp"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="123dp" />
+
+        <LinearLayout
+            android:id="@+id/linerLayout45"
+            android:layout_width="410dp"
+            android:layout_height="80dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTempeture"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="0dp">
+
+
+            <TextView
+                android:id="@+id/text24"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginRight="20dp"
+                android:text="Humidity"
+                android:gravity="center"
+                android:textSize="25dp" />
+
+            <TextView
+                android:id="@+id/text25"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:text="WIND"
+                android:gravity="center"
+                android:textSize="25dp" />
+
+            <TextView
+                android:id="@+id/text26"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="PRESSURE"
+                android:textSize="25dp"
+                android:gravity="center"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayoutTimeTempetures"
+            android:layout_width="match_parent"
+            android:layout_height="82dp"
+            android:orientation="vertical"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteY="334dp">
+
+            <TextView
+                android:id="@+id/tempeture"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="50"
+                android:textSize="30dp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/temps"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:background="@drawable/rounded_corner"
+        >
+
+        <LinearLayout
+            android:id="@+id/fivedayforecast1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:layout_marginLeft="10dp"
+            >
+
+            <TextView
+                android:id="@+id/firstDay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="FRİDAY"
+                android:textSize="20dp"
+                tools:ignore="DuplicateIds"
+                android:textColor="@color/black"
+                />
+
+            <TextView
+                android:id="@+id/firstMinTemp1"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:gravity="center"
+                android:text="25"
+                android:textSize="20dp"
+                android:textColor="@color/black"
+                />
+
+            <ImageView
+                android:id="@+id/icon1"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/sun"
+                android:scaleType="fitCenter"/>
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/fivedayforecast2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:layout_marginLeft="10dp">
+
+            <TextView
+                android:id="@+id/firstDay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="FRİDAY"
+                android:textSize="20dp"
+                android:textColor="@color/black"
+                tools:ignore="DuplicateIds" />
+
+            <TextView
+                android:id="@+id/firstMinTemp2"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:gravity="center"
+                android:text="25"
+                android:textSize="20dp"
+                android:textColor="@color/black"
+                />
+
+            <ImageView
+                android:id="@+id/icon2"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/sun" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/fivedayforecast3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:layout_marginLeft="10dp">
+
+            <TextView
+                android:id="@+id/firstDay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="FRİDAY"
+                android:textSize="20dp"
+                tools:ignore="DuplicateIds"
+                android:textColor="@color/black"
+                />
+
+            <TextView
+                android:id="@+id/firstMinTemp3"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:gravity="center"
+                android:text="25"
+                android:textSize="20dp"
+                android:textColor="@color/black"
+                />
+
+            <ImageView
+                android:id="@+id/icon3"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/sun" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/fivedayforecast4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:layout_marginLeft="10dp">
+
+            <TextView
+                android:id="@+id/firstDay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="FRİDAY"
+                android:textSize="20dp"
+                tools:ignore="DuplicateIds"
+                android:textColor="@color/black"
+                />
+
+            <TextView
+                android:id="@+id/firstMinTemp4"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:gravity="center"
+                android:text="25"
+                android:textSize="20dp"
+                android:textColor="@color/black"
+                />
+
+            <ImageView
+                android:id="@+id/icon4"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/sun" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/fivedayforecast5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:layout_marginLeft="10dp">
+
+            <TextView
+                android:id="@+id/firstDay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="FRİDAY"
+                android:textSize="20dp"
+                tools:ignore="DuplicateIds"
+                android:textColor="@color/black"
+                />
+
+            <TextView
+                android:id="@+id/firstMinTemp5"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:gravity="center"
+                android:text="25"
+                android:textSize="20dp"
+                android:textColor="@color/black"
+                />
+
+            <ImageView
+                android:id="@+id/icon5"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/sun" />
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>
