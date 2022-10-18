@@ -16,7 +16,7 @@
 
         <LinearLayout
             android:id="@+id/temps"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:adjustViewBounds="true"
             android:background="@drawable/rounded_corner"
@@ -24,8 +24,9 @@
             android:orientation="vertical"
             android:weightSum="1"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/relativeLayout">
+            app:layout_constraintTop_toBottomOf="@+id/linerlayoutInfo">
 
 
             <LinearLayout
@@ -327,37 +328,32 @@
 
         <HorizontalScrollView
             android:id="@+id/relativeLayout"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="11dp"
+            android:layout_width="406dp"
+            android:layout_height="103dp"
+            android:layout_alignParentRight="true"
             android:fillViewport="true"
+            android:scaleType="fitCenter"
             android:scrollbars="none"
             app:layout_constraintBottom_toTopOf="@+id/temps"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textViewTempeture"
+            app:layout_constraintTop_toBottomOf="@+id/linerlayoutInfo"
+            app:layout_constraintVertical_bias="0.0"
             tools:ignore="MissingConstraints">
 
             <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="50dp"
+                android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
 
                 <LinearLayout
                     android:id="@+id/tempHours1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-
-
-                    <ImageView
-                        android:id="@+id/imageViewTemp1"
-                        android:layout_width="50dp"
-                        android:layout_height="wrap_content"
-                        android:adjustViewBounds="true"
-                        android:padding="2dp"
-                        android:scaleType="fitCenter"
-                        app:srcCompat="@drawable/sun" />
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/tempeture1"
@@ -371,20 +367,35 @@
                         android:text="50"
                         android:textSize="20sp" />
 
+                    <ImageView
+                        android:id="@+id/imageViewTemp1"
+                        android:layout_width="50dp"
+                        android:layout_height="wrap_content"
+                        android:adjustViewBounds="true"
+                        android:padding="2dp"
+                        android:scaleType="fitCenter"
+                        app:srcCompat="@drawable/sun" />
+
+                    <TextView
+                        android:id="@+id/time1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:shadowColor="@color/black"
+                        android:shadowDx="1"
+                        android:shadowDy="1"
+                        android:shadowRadius="2"
+                        android:text="00:00"
+                        android:textSize="10dp" />
+
                 </LinearLayout>
 
                 <LinearLayout
                     android:id="@+id/tempHours2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-
-                    <ImageView
-                        android:id="@+id/imageViewTemp2"
-                        android:layout_width="47dp"
-                        android:layout_height="wrap_content"
-                        android:adjustViewBounds="true"
-                        android:padding="2dp"
-                        app:srcCompat="@drawable/sun" />
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/tempeture2"
@@ -398,20 +409,35 @@
                         android:text="50"
                         android:textSize="20sp" />
 
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/tempHours3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-
                     <ImageView
-                        android:id="@+id/imageViewTemp3"
+                        android:id="@+id/imageViewTemp2"
                         android:layout_width="50dp"
                         android:layout_height="wrap_content"
                         android:adjustViewBounds="true"
                         android:padding="2dp"
+                        android:scaleType="fitCenter"
                         app:srcCompat="@drawable/sun" />
+
+                    <TextView
+                        android:id="@+id/time2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:shadowColor="@color/black"
+                        android:shadowDx="1"
+                        android:shadowDy="1"
+                        android:shadowRadius="2"
+                        android:text="00:00"
+                        android:textSize="10dp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/tempHours3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/tempeture3"
@@ -425,20 +451,35 @@
                         android:text="50"
                         android:textSize="20sp" />
 
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/tempHours4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-
                     <ImageView
-                        android:id="@+id/imageViewTemp4"
+                        android:id="@+id/imageViewTemp3"
                         android:layout_width="50dp"
                         android:layout_height="wrap_content"
                         android:adjustViewBounds="true"
                         android:padding="2dp"
+                        android:scaleType="fitCenter"
                         app:srcCompat="@drawable/sun" />
+
+                    <TextView
+                        android:id="@+id/time3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:shadowColor="@color/black"
+                        android:shadowDx="1"
+                        android:shadowDy="1"
+                        android:shadowRadius="2"
+                        android:text="00:00"
+                        android:textSize="10dp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/tempHours4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/tempeture4"
@@ -452,20 +493,35 @@
                         android:text="50"
                         android:textSize="20sp" />
 
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/tempHours5"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-
                     <ImageView
-                        android:id="@+id/imageViewTemp5"
+                        android:id="@+id/imageViewTemp4"
                         android:layout_width="50dp"
                         android:layout_height="wrap_content"
                         android:adjustViewBounds="true"
                         android:padding="2dp"
+                        android:scaleType="fitCenter"
                         app:srcCompat="@drawable/sun" />
+
+                    <TextView
+                        android:id="@+id/time4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:shadowColor="@color/black"
+                        android:shadowDx="1"
+                        android:shadowDy="1"
+                        android:shadowRadius="2"
+                        android:text="00:00"
+                        android:textSize="10dp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/tempHours5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/tempeture5"
@@ -479,20 +535,35 @@
                         android:text="50"
                         android:textSize="20sp" />
 
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/tempHours6"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-
                     <ImageView
-                        android:id="@+id/imageViewTemp6"
+                        android:id="@+id/imageViewTemp5"
                         android:layout_width="50dp"
                         android:layout_height="wrap_content"
                         android:adjustViewBounds="true"
                         android:padding="2dp"
+                        android:scaleType="fitCenter"
                         app:srcCompat="@drawable/sun" />
+
+                    <TextView
+                        android:id="@+id/time5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:shadowColor="@color/black"
+                        android:shadowDx="1"
+                        android:shadowDy="1"
+                        android:shadowRadius="2"
+                        android:text="00:00"
+                        android:textSize="10dp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/tempHours6"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/tempeture6"
@@ -506,20 +577,35 @@
                         android:text="50"
                         android:textSize="20sp" />
 
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/tempHours7"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-
                     <ImageView
-                        android:id="@+id/imageViewTemp7"
+                        android:id="@+id/imageViewTemp6"
                         android:layout_width="50dp"
                         android:layout_height="wrap_content"
                         android:adjustViewBounds="true"
                         android:padding="2dp"
+                        android:scaleType="fitCenter"
                         app:srcCompat="@drawable/sun" />
+
+                    <TextView
+                        android:id="@+id/time6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:shadowColor="@color/black"
+                        android:shadowDx="1"
+                        android:shadowDy="1"
+                        android:shadowRadius="2"
+                        android:text="00:00"
+                        android:textSize="10dp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/tempHours7"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/tempeture7"
@@ -532,20 +618,36 @@
                         android:shadowRadius="2"
                         android:text="50"
                         android:textSize="20sp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/tempHours8"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
 
                     <ImageView
-                        android:id="@+id/imageViewTemp8"
+                        android:id="@+id/imageViewTemp7"
                         android:layout_width="50dp"
                         android:layout_height="wrap_content"
                         android:adjustViewBounds="true"
                         android:padding="2dp"
+                        android:scaleType="fitCenter"
                         app:srcCompat="@drawable/sun" />
+
+                    <TextView
+                        android:id="@+id/time7"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:shadowColor="@color/black"
+                        android:shadowDx="1"
+                        android:shadowDy="1"
+                        android:shadowRadius="2"
+                        android:text="00:00"
+                        android:textSize="10dp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/tempHours8"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/tempeture8"
@@ -558,20 +660,36 @@
                         android:shadowRadius="2"
                         android:text="50"
                         android:textSize="20sp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/tempHours9"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
 
                     <ImageView
-                        android:id="@+id/imageViewTemp9"
+                        android:id="@+id/imageViewTemp8"
                         android:layout_width="50dp"
                         android:layout_height="wrap_content"
                         android:adjustViewBounds="true"
                         android:padding="2dp"
+                        android:scaleType="fitCenter"
                         app:srcCompat="@drawable/sun" />
+
+                    <TextView
+                        android:id="@+id/time8"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:shadowColor="@color/black"
+                        android:shadowDx="1"
+                        android:shadowDy="1"
+                        android:shadowRadius="2"
+                        android:text="00:00"
+                        android:textSize="10dp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/tempHours9"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/tempeture9"
@@ -584,6 +702,28 @@
                         android:shadowRadius="2"
                         android:text="50"
                         android:textSize="20sp" />
+
+                    <ImageView
+                        android:id="@+id/imageViewTemp9"
+                        android:layout_width="50dp"
+                        android:layout_height="wrap_content"
+                        android:adjustViewBounds="true"
+                        android:padding="2dp"
+                        android:scaleType="fitCenter"
+                        app:srcCompat="@drawable/sun" />
+
+                    <TextView
+                        android:id="@+id/time9"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:shadowColor="@color/black"
+                        android:shadowDx="1"
+                        android:shadowDy="1"
+                        android:shadowRadius="2"
+                        android:text="00:00"
+                        android:textSize="10dp" />
+
                 </LinearLayout>
             </LinearLayout>
         </HorizontalScrollView>
@@ -592,9 +732,10 @@
             android:id="@+id/linerlayoutInfo"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="96dp"
             android:gravity="center"
             android:orientation="horizontal"
-            app:layout_constraintBottom_toTopOf="@+id/relativeLayout"
+            app:layout_constraintBottom_toTopOf="@+id/temps"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textViewTempeture">
@@ -602,6 +743,7 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
+
                 <ImageView
                     android:id="@+id/imageHum"
                     android:layout_width="80dp"
@@ -619,67 +761,70 @@
                     android:id="@+id/textHumm"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:text="50"
                     android:gravity="center"
+                    android:text="50"
                     android:textColor="#DAD9D6"
                     android:textSize="20sp" />
             </LinearLayout>
 
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-><ImageView
-        android:id="@+id/imagewing"
-        android:layout_width="80dp"
-        android:layout_height="50dp"
-        android:adjustViewBounds="true"
-        android:elevation="2dp"
-        android:padding="10dp"
-        android:scaleType="centerCrop"
-        android:shadowColor="@color/black"
-        android:shadowDx="1"
-        android:shadowDy="1"
-        android:shadowRadius="5"
-        android:src="@drawable/wing" />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
 
-        <TextView
-            android:id="@+id/textwing"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="50"
-            android:textColor="#DAD9D6"
-            android:gravity="center"
-            android:textSize="20sp" /></LinearLayout>
+                <ImageView
+                    android:id="@+id/imagewing"
+                    android:layout_width="80dp"
+                    android:layout_height="50dp"
+                    android:adjustViewBounds="true"
+                    android:elevation="2dp"
+                    android:padding="10dp"
+                    android:scaleType="centerCrop"
+                    android:shadowColor="@color/black"
+                    android:shadowDx="1"
+                    android:shadowDy="1"
+                    android:shadowRadius="5"
+                    android:src="@drawable/wing" />
 
+                <TextView
+                    android:id="@+id/textwing"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="50"
+                    android:textColor="#DAD9D6"
+                    android:textSize="20sp" />
+            </LinearLayout>
 
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
+
                 <ImageView
-                android:id="@+id/imagepressure"
-                android:layout_width="70dp"
-                android:layout_height="50dp"
-                android:padding="20dp"
-                android:adjustViewBounds="true"
-                android:scaleType="centerCrop"
-                android:shadowColor="@color/black"
-                android:shadowDx="1"
-                android:shadowDy="1"
-                android:shadowRadius="5"
-                android:src="@drawable/pressure" />
+                    android:id="@+id/imagepressure"
+                    android:layout_width="70dp"
+                    android:layout_height="50dp"
+                    android:adjustViewBounds="true"
+                    android:padding="20dp"
+                    android:scaleType="centerCrop"
+                    android:shadowColor="@color/black"
+                    android:shadowDx="1"
+                    android:shadowDy="1"
+                    android:shadowRadius="5"
+                    android:src="@drawable/pressure" />
 
                 <TextView
                     android:id="@+id/textpressure"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:text="50"
                     android:autoSizeTextType="uniform"
-                    android:maxLines="1"
                     android:gravity="center"
+                    android:maxLines="1"
+                    android:text="50"
                     android:textColor="#DAD9D6"
-                    android:textSize="20sp" /></LinearLayout>
+                    android:textSize="20sp" />
+            </LinearLayout>
 
         </LinearLayout>
 
@@ -687,7 +832,7 @@
             android:id="@+id/textViewTempeture"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="59dp"
+            android:layout_marginBottom="4dp"
             android:autoSizeTextType="uniform"
             android:gravity="center"
             android:shadowColor="@color/black"
@@ -697,7 +842,7 @@
             android:text="20,1"
             android:textColor="#DAD9D6"
             android:textSize="55sp"
-            app:layout_constraintBottom_toTopOf="@+id/relativeLayout"
+            app:layout_constraintBottom_toTopOf="@+id/linerlayoutInfo"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView"
@@ -707,6 +852,8 @@
             android:id="@+id/cityName"
             android:layout_width="0dp"
             android:layout_height="86dp"
+            android:layout_marginTop="56dp"
+            android:layout_marginBottom="70dp"
             android:autoSizeTextType="uniform"
             android:gravity="center"
             android:shadowColor="@color/black"
@@ -717,16 +864,17 @@
             android:textColor="#DAD9D6"
             android:textSize="50sp"
             android:textStyle="italic"
+            app:layout_constraintBottom_toBottomOf="@+id/textViewTempeture"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView"
+            app:layout_constraintTop_toTopOf="@+id/imageView"
             tools:ignore="MissingConstraints" />
 
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
-            android:layout_marginBottom="82dp"
+            android:layout_marginBottom="81dp"
             android:adjustViewBounds="true"
             android:contentDescription="TODO"
             android:src="@drawable/sun"

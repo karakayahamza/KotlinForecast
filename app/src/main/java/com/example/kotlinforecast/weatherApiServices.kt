@@ -15,7 +15,6 @@ class weatherApiServices {
         .build()
         .create(weatherApi::class.java)
 
-
     fun getData(name: String, app_id: String): io.reactivex.Observable<WeatherModel> {
         return retrofit.getData(name, app_id,"metric")
     }

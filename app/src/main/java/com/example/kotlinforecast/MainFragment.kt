@@ -3,16 +3,14 @@ package com.example.kotlinforecast
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.*
-import android.widget.ImageView
 import android.widget.PopupMenu
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import com.example.kotlinforecast.databinding.FragmentMainBinding
 import android.widget.TextView
-
-
-
+import java.text.SimpleDateFormat
+import java.util.*
 
 
 class MainFragment : Fragment() {
@@ -81,7 +79,7 @@ class MainFragment : Fragment() {
         }
     }
 
-    @SuppressLint("SetTextI18n")
+    @SuppressLint("SetTextI18n", "SimpleDateFormat")
     private fun observeLiveData(){
         viewModel.weathers.observe(viewLifecycleOwner,{weather ->
             weather?.let {
@@ -106,10 +104,39 @@ class MainFragment : Fragment() {
                     R.id.tempeture8,
                     R.id.tempeture9,
                 )
+
+                val textTimes = intArrayOf(
+                    R.id.time1,
+                    R.id.time2,
+                    R.id.time3,
+                    R.id.time4,
+                    R.id.time5,
+                    R.id.time6,
+                    R.id.time7,
+                    R.id.time8,
+                    R.id.time9,
+                )
+
                 for (i in 1..9) {
                     val tv :TextView= requireView().findViewById<TextView>(textViews[i]) as TextView
-                    tv.text = it.weatherList[i].main?.temp.toString().substringBefore(".")+"°C"}
+                    tv.text = it.weatherList[i].main?.temp.toString().substringBefore(".")+"°C"
 
+                    val time : TextView = requireView().findViewById<TextView>(textTimes[i]) as TextView
+
+                    //@SuppressLint("SimpleDateFormat") val output = SimpleDateFormat("EEE HH:mm")
+                    @SuppressLint("SimpleDateFormat") val input =
+                        SimpleDateFormat("yyyy-MM-dd HH:mm")
+                    @SuppressLint("SimpleDateFormat") val output = SimpleDateFormat("EEE HH:mm")
+
+                    var convertTime = it.weatherList[i].dt_txt
+
+                    val t: Date = input.parse(convertTime)
+                    convertTime = output.format(t)
+
+                    time.text = convertTime
+
+
+                }
             }
         })
     }
