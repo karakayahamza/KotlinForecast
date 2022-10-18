@@ -117,16 +117,24 @@ class MainFragment : Fragment() {
                     R.id.time9,
                 )
 
-                for (i in 1..9) {
+                val textDays = intArrayOf(
+                    R.id.firstDay1,
+                    R.id.firstDay2,
+                    R.id.firstDay3,
+                    R.id.firstDay4,
+                    R.id.firstDay5
+                )
+
+                for (i in 1 until 9) {
                     val tv :TextView= requireView().findViewById<TextView>(textViews[i]) as TextView
                     tv.text = it.weatherList[i].main?.temp.toString().substringBefore(".")+"°C"
 
                     val time : TextView = requireView().findViewById<TextView>(textTimes[i]) as TextView
 
-                    //@SuppressLint("SimpleDateFormat") val output = SimpleDateFormat("EEE HH:mm")
                     @SuppressLint("SimpleDateFormat") val input =
                         SimpleDateFormat("yyyy-MM-dd HH:mm")
-                    @SuppressLint("SimpleDateFormat") val output = SimpleDateFormat("EEE HH:mm")
+                    @SuppressLint("SimpleDateFormat") val output = SimpleDateFormat("HH:mm")
+
 
                     var convertTime = it.weatherList[i].dt_txt
 
@@ -135,7 +143,42 @@ class MainFragment : Fragment() {
 
                     time.text = convertTime
 
+                }
 
+
+
+
+
+                var a = 0
+                for (x in 0..39){
+
+                    @SuppressLint("SimpleDateFormat") val input =
+                        SimpleDateFormat("yyyy-MM-dd HH:mm")
+                    @SuppressLint("SimpleDateFormat") val output = SimpleDateFormat("HH:mm")
+
+
+                    var convertTime = it.weatherList[x].dt_txt
+
+                    val t: Date = input.parse(convertTime)
+                    convertTime = output.format(t)
+
+
+
+                    @SuppressLint("SimpleDateFormat") val input2 =
+                        SimpleDateFormat("yyyy-MM-dd HH:mm")
+                    @SuppressLint("SimpleDateFormat") val output2 = SimpleDateFormat("EEEE")
+
+                    var convertDay = it.weatherList[x].dt_txt
+                    val d : Date = input2.parse(convertDay)
+                    convertDay = output2.format(d)
+
+
+                    if (convertTime.toString() =="12:00"){
+                        val tv :TextView= requireView().findViewById<TextView>(textDays[a]) as TextView
+                        tv.text = convertDay
+                        a++
+                        println(a)
+                    }
                 }
             }
         })
