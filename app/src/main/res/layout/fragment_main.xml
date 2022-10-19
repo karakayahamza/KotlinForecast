@@ -34,7 +34,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
-                android:gravity="center"
+                android:gravity="center_horizontal"
                 android:orientation="horizontal">
 
                 <TextView
@@ -46,8 +46,10 @@
                     android:shadowDx="1"
                     android:shadowDy="1"
                     android:shadowRadius="2"
-                    android:text="FRİDAY"
-                    android:textSize="20sp"
+                    android:text="TODAY"
+                    android:textSize="15sp"
+                    android:autoSizeTextType="uniform"
+                    android:maxLines="1"
                     tools:ignore="DuplicateIds" />
 
                 <TextView
@@ -60,20 +62,7 @@
                     android:shadowDx="1"
                     android:shadowDy="1"
                     android:shadowRadius="2"
-                    android:text="25"
-                    android:textSize="20sp" />
-
-                <TextView
-                    android:id="@+id/firstMaxTemp1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="45dp"
-                    android:gravity="center"
-                    android:shadowColor="@color/black"
-                    android:shadowDx="1"
-                    android:shadowDy="1"
-                    android:shadowRadius="2"
-                    android:text="25"
+                    android:text="25°C"
                     android:textSize="20sp" />
 
                 <ImageView
@@ -81,6 +70,7 @@
                     android:layout_width="0dp"
                     android:layout_height="50dp"
                     android:layout_weight="1"
+                    android:adjustViewBounds="true"
                     android:scaleType="fitCenter"
                     app:srcCompat="@drawable/sun" />
             </LinearLayout>
@@ -103,24 +93,13 @@
                     android:shadowDy="1"
                     android:shadowRadius="2"
                     android:text="FRİDAY"
-                    android:textSize="20sp"
+                    android:textSize="15sp"
+                    android:autoSizeTextType="uniform"
+                    android:maxLines="1"
                     tools:ignore="DuplicateIds" />
 
                 <TextView
                     android:id="@+id/firstMinTemp2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="45dp"
-                    android:gravity="center"
-                    android:shadowColor="@color/black"
-                    android:shadowDx="1"
-                    android:shadowDy="1"
-                    android:shadowRadius="2"
-                    android:text="25"
-                    android:textSize="20sp" />
-
-                <TextView
-                    android:id="@+id/firstMaxTemp2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="45dp"
@@ -158,24 +137,13 @@
                     android:shadowDy="1"
                     android:shadowRadius="2"
                     android:text="FRİDAY"
-                    android:textSize="20sp"
+                    android:textSize="15sp"
+                    android:autoSizeTextType="uniform"
+                    android:maxLines="1"
                     tools:ignore="DuplicateIds" />
 
                 <TextView
                     android:id="@+id/firstMinTemp3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="45dp"
-                    android:gravity="center"
-                    android:shadowColor="@color/black"
-                    android:shadowDx="1"
-                    android:shadowDy="1"
-                    android:shadowRadius="2"
-                    android:text="25"
-                    android:textSize="20sp" />
-
-                <TextView
-                    android:id="@+id/firstMaxTemp3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="45dp"
@@ -213,24 +181,13 @@
                     android:shadowDy="1"
                     android:shadowRadius="2"
                     android:text="FRİDAY"
-                    android:textSize="20sp"
+                    android:textSize="15sp"
+                    android:autoSizeTextType="uniform"
+                    android:maxLines="1"
                     tools:ignore="DuplicateIds" />
 
                 <TextView
                     android:id="@+id/firstMinTemp4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="45dp"
-                    android:gravity="center"
-                    android:shadowColor="@color/black"
-                    android:shadowDx="1"
-                    android:shadowDy="1"
-                    android:shadowRadius="2"
-                    android:text="25"
-                    android:textSize="20sp" />
-
-                <TextView
-                    android:id="@+id/firstMaxTemp4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="45dp"
@@ -268,24 +225,13 @@
                     android:shadowDy="1"
                     android:shadowRadius="2"
                     android:text="FRİDAY"
-                    android:textSize="20sp"
+                    android:textSize="15sp"
+                    android:autoSizeTextType="uniform"
+                    android:maxLines="1"
                     tools:ignore="DuplicateIds" />
 
                 <TextView
                     android:id="@+id/firstMinTemp5"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="45dp"
-                    android:gravity="center"
-                    android:shadowColor="@color/black"
-                    android:shadowDx="1"
-                    android:shadowDy="1"
-                    android:shadowRadius="2"
-                    android:text="25"
-                    android:textSize="20sp" />
-
-                <TextView
-                    android:id="@+id/firstMaxTemp5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="45dp"
@@ -328,9 +274,8 @@
 
         <HorizontalScrollView
             android:id="@+id/relativeLayout"
-            android:layout_width="406dp"
-            android:layout_height="103dp"
-            android:layout_alignParentRight="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:fillViewport="true"
             android:scaleType="fitCenter"
             android:scrollbars="none"
@@ -343,56 +288,13 @@
             tools:ignore="MissingConstraints">
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
-
-                <LinearLayout
-                    android:id="@+id/tempHours1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/tempeture1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:gravity="center"
-                        android:shadowColor="@color/black"
-                        android:shadowDx="1"
-                        android:shadowDy="1"
-                        android:shadowRadius="2"
-                        android:text="50"
-                        android:textSize="20sp" />
-
-                    <ImageView
-                        android:id="@+id/imageViewTemp1"
-                        android:layout_width="50dp"
-                        android:layout_height="wrap_content"
-                        android:adjustViewBounds="true"
-                        android:padding="2dp"
-                        android:scaleType="fitCenter"
-                        app:srcCompat="@drawable/sun" />
-
-                    <TextView
-                        android:id="@+id/time1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:gravity="center"
-                        android:shadowColor="@color/black"
-                        android:shadowDx="1"
-                        android:shadowDy="1"
-                        android:shadowRadius="2"
-                        android:text="00:00"
-                        android:textSize="10dp" />
-
-                </LinearLayout>
-
                 <LinearLayout
                     android:id="@+id/tempHours2"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:orientation="vertical">
@@ -434,7 +336,7 @@
 
                 <LinearLayout
                     android:id="@+id/tempHours3"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:orientation="vertical">
@@ -476,7 +378,7 @@
 
                 <LinearLayout
                     android:id="@+id/tempHours4"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:orientation="vertical">
@@ -518,7 +420,7 @@
 
                 <LinearLayout
                     android:id="@+id/tempHours5"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:orientation="vertical">
@@ -560,7 +462,7 @@
 
                 <LinearLayout
                     android:id="@+id/tempHours6"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:orientation="vertical">
@@ -602,7 +504,7 @@
 
                 <LinearLayout
                     android:id="@+id/tempHours7"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:orientation="vertical">
@@ -644,7 +546,7 @@
 
                 <LinearLayout
                     android:id="@+id/tempHours8"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:orientation="vertical">

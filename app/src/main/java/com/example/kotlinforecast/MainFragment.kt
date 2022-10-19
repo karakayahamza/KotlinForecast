@@ -94,7 +94,6 @@ class MainFragment : Fragment() {
 
                 // Hourly tempetures
                 val textViews = intArrayOf(
-                    R.id.tempeture1,
                     R.id.tempeture2,
                     R.id.tempeture3,
                     R.id.tempeture4,
@@ -102,11 +101,10 @@ class MainFragment : Fragment() {
                     R.id.tempeture6,
                     R.id.tempeture7,
                     R.id.tempeture8,
-                    R.id.tempeture9,
+                    R.id.tempeture9
                 )
 
                 val textTimes = intArrayOf(
-                    R.id.time1,
                     R.id.time2,
                     R.id.time3,
                     R.id.time4,
@@ -114,7 +112,7 @@ class MainFragment : Fragment() {
                     R.id.time6,
                     R.id.time7,
                     R.id.time8,
-                    R.id.time9,
+                    R.id.time9
                 )
 
                 val textDays = intArrayOf(
@@ -125,7 +123,16 @@ class MainFragment : Fragment() {
                     R.id.firstDay5
                 )
 
-                for (i in 1 until 9) {
+                val textMinTemps = intArrayOf(
+                    R.id.firstMinTemp1,
+                    R.id.firstMinTemp2,
+                    R.id.firstMinTemp3,
+                    R.id.firstMinTemp4,
+                    R.id.firstMinTemp5,
+
+                )
+
+                for (i in 0 until 8) {
                     val tv :TextView= requireView().findViewById<TextView>(textViews[i]) as TextView
                     tv.text = it.weatherList[i].main?.temp.toString().substringBefore(".")+"°C"
 
@@ -144,7 +151,6 @@ class MainFragment : Fragment() {
                     time.text = convertTime
 
                 }
-
 
 
 
@@ -175,9 +181,14 @@ class MainFragment : Fragment() {
 
                     if (convertTime.toString() =="12:00"){
                         val tv :TextView= requireView().findViewById<TextView>(textDays[a]) as TextView
-                        tv.text = convertDay
+                        if (a!=0){
+                            tv.text = convertDay
+                        }
+
+
+                        val temp :TextView= requireView().findViewById<TextView>(textMinTemps[a]) as TextView
+                        temp.text = it.weatherList[x].main?.temp.toString().substringBefore(".")+"°C"
                         a++
-                        println(a)
                     }
                 }
             }
