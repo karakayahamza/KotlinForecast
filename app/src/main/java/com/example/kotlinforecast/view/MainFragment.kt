@@ -1,16 +1,17 @@
-package com.example.kotlinforecast
+package com.example.kotlinforecast.view
 
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.*
-import android.widget.PopupMenu
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import com.example.kotlinforecast.databinding.FragmentMainBinding
 import android.widget.TextView
+import com.example.kotlinforecast.R
+import com.example.kotlinforecast.model.WeatherModel
 import java.text.SimpleDateFormat
 import java.util.*
+import com.example.kotlinforecast.viewModel.weatherViewModel
 
 
 class MainFragment : Fragment() {
@@ -18,6 +19,28 @@ class MainFragment : Fragment() {
     private val binding get() = _binding!!
     private lateinit var viewModel: weatherViewModel
     private lateinit var weatherModel : WeatherModel
+    private val fragmentTagArg = "tag"
+
+
+    fun newInstance(cityName: String?): MainFragment {
+        return newInstance(fragmentTagArg, cityName)
+    }
+
+     fun newInstance(cityName: String?, weatherModel: WeatherModel): MainFragment {
+        this.weatherModel = weatherModel
+        return newInstance(fragmentTagArg, cityName)
+    }
+
+    fun newInstance(tag: String, cityName: String?): MainFragment {
+        val fragment = MainFragment()
+        val args = Bundle()
+        args.putString("cityname", cityName)
+        args.putString(fragmentTagArg, tag + "_" + fragment.hashCode())
+        fragment.arguments = args
+        return fragment
+    }
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,50 +65,32 @@ class MainFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         viewModel = ViewModelProviders.of(this)[weatherViewModel::class.java]
-        viewModel.loadData("Ankara","61e8b0259c092b1b9a15474cd800ee25")
-
-
+        arguments?.getString("cityname")
+            ?.let { viewModel.loadData(it,"61e8b0259c092b1b9a15474cd800ee25") }
         observeLiveData()
-
-
-        binding.imageView2.setOnClickListener { view ->
-            val popup = PopupMenu(context, view)
-            val inflater: MenuInflater = popup.menuInflater
-            inflater.inflate(R.menu.menu, popup.menu)
-            popup.setOnMenuItemClickListener { menuItem ->
-                when(menuItem.itemId){
-                    R.id.menu_settings-> {
-                        Toast.makeText(context,"Setting", Toast.LENGTH_SHORT).show()
-                        binding.mainLayout.setBackgroundResource(R.drawable.rain)
-                    }
-                    R.id.add_newPlace-> {
-                        Toast.makeText(context,"Add new place", Toast.LENGTH_SHORT).show()
-                        binding.mainLayout.setBackgroundResource(R.drawable.fog)
-                    }
-                    R.id.about-> {
-                        Toast.makeText(context,"About credit by HK", Toast.LENGTH_SHORT).show()
-                        binding.mainLayout.setBackgroundResource(R.drawable.snow)
-                    }
-                    R.id.about2-> {
-                        Toast.makeText(context,"About credit by HK", Toast.LENGTH_SHORT).show()
-                        binding.mainLayout.setBackgroundResource(R.drawable.sunny)
-                    }
-                }
-                true
-            }
-            popup.show()
-        }
     }
+
+
 
     @SuppressLint("SetTextI18n", "SimpleDateFormat")
     private fun observeLiveData(){
         viewModel.weathers.observe(viewLifecycleOwner,{weather ->
             weather?.let {
                 weatherModel = it
-                println(it.city.name)
+                @SuppressLint("SimpleDateFormat") val input =
+                    SimpleDateFormat("yyyy-MM-dd HH:mm")
+                @SuppressLint("SimpleDateFormat") val output = SimpleDateFormat("EEE, d MMM yyyy")
 
+
+                var convertTime = it.weatherList[0].dt_txt
+
+                val t: Date = input.parse(convertTime)
+                convertTime = output.format(t)
+
+
+
+                binding.textDay.text = convertTime
                 binding.cityName.text = it.city.name
                 binding.textViewTempeture.text = it.weatherList[0].main?.temp.toString().substringBefore(".")+"°C"
                 binding.textHumm.text = it.weatherList[0].main?.humidity.toString()
@@ -93,44 +98,7 @@ class MainFragment : Fragment() {
                 binding.textwing.text = it.weatherList[0].wind?.speed.toString()
 
                 // Hourly tempetures
-                val textViews = intArrayOf(
-                    R.id.tempeture2,
-                    R.id.tempeture3,
-                    R.id.tempeture4,
-                    R.id.tempeture5,
-                    R.id.tempeture6,
-                    R.id.tempeture7,
-                    R.id.tempeture8,
-                    R.id.tempeture9
-                )
 
-                val textTimes = intArrayOf(
-                    R.id.time2,
-                    R.id.time3,
-                    R.id.time4,
-                    R.id.time5,
-                    R.id.time6,
-                    R.id.time7,
-                    R.id.time8,
-                    R.id.time9
-                )
-
-                val textDays = intArrayOf(
-                    R.id.firstDay1,
-                    R.id.firstDay2,
-                    R.id.firstDay3,
-                    R.id.firstDay4,
-                    R.id.firstDay5
-                )
-
-                val textMinTemps = intArrayOf(
-                    R.id.firstMinTemp1,
-                    R.id.firstMinTemp2,
-                    R.id.firstMinTemp3,
-                    R.id.firstMinTemp4,
-                    R.id.firstMinTemp5,
-
-                )
 
                 for (i in 0 until 8) {
                     val tv :TextView= requireView().findViewById<TextView>(textViews[i]) as TextView
@@ -151,10 +119,6 @@ class MainFragment : Fragment() {
                     time.text = convertTime
 
                 }
-
-
-
-
                 var a = 0
                 for (x in 0..39){
 
@@ -194,4 +158,44 @@ class MainFragment : Fragment() {
             }
         })
     }
+
+
+    // XML id's
+    private val textViews = intArrayOf(
+        R.id.tempeture2,
+        R.id.tempeture3,
+        R.id.tempeture4,
+        R.id.tempeture5,
+        R.id.tempeture6,
+        R.id.tempeture7,
+        R.id.tempeture8,
+        R.id.tempeture9
+    )
+
+    private val textTimes = intArrayOf(
+        R.id.time2,
+        R.id.time3,
+        R.id.time4,
+        R.id.time5,
+        R.id.time6,
+        R.id.time7,
+        R.id.time8,
+        R.id.time9
+    )
+
+    private val textDays = intArrayOf(
+        R.id.firstDay1,
+        R.id.firstDay2,
+        R.id.firstDay3,
+        R.id.firstDay4,
+        R.id.firstDay5
+    )
+
+    private val textMinTemps = intArrayOf(
+        R.id.firstMinTemp1,
+        R.id.firstMinTemp2,
+        R.id.firstMinTemp3,
+        R.id.firstMinTemp4,
+        R.id.firstMinTemp5,
+        )
 }

@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainFragment">
+    android:background="@drawable/thunder"
+    tools:context=".view.MainFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/mainLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/thunder"
-        tools:context=".MainActivity"
         tools:layout_editor_absoluteY="25dp">
 
         <LinearLayout
@@ -25,8 +25,7 @@
             android:weightSum="1"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linerlayoutInfo">
+            app:layout_constraintStart_toStartOf="parent">
 
 
             <LinearLayout
@@ -41,6 +40,8 @@
                     android:id="@+id/firstDay1"
                     android:layout_width="101dp"
                     android:layout_height="wrap_content"
+                    android:autoSizeTextType="uniform"
+                    android:maxLines="1"
                     android:padding="10dp"
                     android:shadowColor="@color/black"
                     android:shadowDx="1"
@@ -48,8 +49,6 @@
                     android:shadowRadius="2"
                     android:text="TODAY"
                     android:textSize="15sp"
-                    android:autoSizeTextType="uniform"
-                    android:maxLines="1"
                     tools:ignore="DuplicateIds" />
 
                 <TextView
@@ -87,6 +86,8 @@
                     android:id="@+id/firstDay2"
                     android:layout_width="101dp"
                     android:layout_height="wrap_content"
+                    android:autoSizeTextType="uniform"
+                    android:maxLines="1"
                     android:padding="10dp"
                     android:shadowColor="@color/black"
                     android:shadowDx="1"
@@ -94,8 +95,6 @@
                     android:shadowRadius="2"
                     android:text="FRİDAY"
                     android:textSize="15sp"
-                    android:autoSizeTextType="uniform"
-                    android:maxLines="1"
                     tools:ignore="DuplicateIds" />
 
                 <TextView
@@ -131,6 +130,8 @@
                     android:id="@+id/firstDay3"
                     android:layout_width="101dp"
                     android:layout_height="wrap_content"
+                    android:autoSizeTextType="uniform"
+                    android:maxLines="1"
                     android:padding="10dp"
                     android:shadowColor="@color/black"
                     android:shadowDx="1"
@@ -138,8 +139,6 @@
                     android:shadowRadius="2"
                     android:text="FRİDAY"
                     android:textSize="15sp"
-                    android:autoSizeTextType="uniform"
-                    android:maxLines="1"
                     tools:ignore="DuplicateIds" />
 
                 <TextView
@@ -175,6 +174,8 @@
                     android:id="@+id/firstDay4"
                     android:layout_width="101dp"
                     android:layout_height="wrap_content"
+                    android:autoSizeTextType="uniform"
+                    android:maxLines="1"
                     android:padding="10dp"
                     android:shadowColor="@color/black"
                     android:shadowDx="1"
@@ -182,8 +183,6 @@
                     android:shadowRadius="2"
                     android:text="FRİDAY"
                     android:textSize="15sp"
-                    android:autoSizeTextType="uniform"
-                    android:maxLines="1"
                     tools:ignore="DuplicateIds" />
 
                 <TextView
@@ -219,6 +218,8 @@
                     android:id="@+id/firstDay5"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
+                    android:autoSizeTextType="uniform"
+                    android:maxLines="1"
                     android:padding="10dp"
                     android:shadowColor="@color/black"
                     android:shadowDx="1"
@@ -226,8 +227,6 @@
                     android:shadowRadius="2"
                     android:text="FRİDAY"
                     android:textSize="15sp"
-                    android:autoSizeTextType="uniform"
-                    android:maxLines="1"
                     tools:ignore="DuplicateIds" />
 
                 <TextView
@@ -253,38 +252,18 @@
 
         </LinearLayout>
 
-        <RelativeLayout
-            android:id="@+id/linerlayıputmenu"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintBottom_toTopOf="@+id/imageView"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <ImageView
-                android:id="@+id/imageView2"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_alignParentRight="true"
-                android:onClick="showPopup"
-                app:srcCompat="@android:drawable/ic_menu_sort_by_size" />
-        </RelativeLayout>
 
         <HorizontalScrollView
             android:id="@+id/relativeLayout"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="3dp"
             android:fillViewport="true"
             android:scaleType="fitCenter"
             android:scrollbars="none"
             app:layout_constraintBottom_toTopOf="@+id/temps"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linerlayoutInfo"
-            app:layout_constraintVertical_bias="0.0"
             tools:ignore="MissingConstraints">
 
             <LinearLayout
@@ -634,13 +613,12 @@
             android:id="@+id/linerlayoutInfo"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="96dp"
+            android:layout_marginBottom="1dp"
             android:gravity="center"
             android:orientation="horizontal"
-            app:layout_constraintBottom_toTopOf="@+id/temps"
+            app:layout_constraintBottom_toTopOf="@+id/relativeLayout"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textViewTempeture">
+            app:layout_constraintStart_toStartOf="parent">
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -734,7 +712,6 @@
             android:id="@+id/textViewTempeture"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="4dp"
             android:autoSizeTextType="uniform"
             android:gravity="center"
             android:shadowColor="@color/black"
@@ -747,15 +724,34 @@
             app:layout_constraintBottom_toTopOf="@+id/linerlayoutInfo"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView"
+            tools:ignore="MissingConstraints" />
+
+
+        <TextView
+            android:id="@+id/textDay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:autoSizeTextType="uniform"
+            android:gravity="center"
+            android:padding="5dp"
+            android:shadowColor="@color/black"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:shadowRadius="2"
+            android:text="TUESDAY"
+            android:textColor="#DAD9D6"
+            android:textSize="15sp"
+            android:textStyle="italic"
+            app:layout_constraintBottom_toTopOf="@+id/imageView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             tools:ignore="MissingConstraints" />
 
         <TextView
             android:id="@+id/cityName"
             android:layout_width="0dp"
-            android:layout_height="86dp"
-            android:layout_marginTop="56dp"
-            android:layout_marginBottom="70dp"
+            android:layout_height="94dp"
             android:autoSizeTextType="uniform"
             android:gravity="center"
             android:shadowColor="@color/black"
@@ -766,26 +762,19 @@
             android:textColor="#DAD9D6"
             android:textSize="50sp"
             android:textStyle="italic"
-            app:layout_constraintBottom_toBottomOf="@+id/textViewTempeture"
+            app:layout_constraintBottom_toTopOf="@+id/textViewTempeture"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/imageView"
             tools:ignore="MissingConstraints" />
 
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_marginBottom="81dp"
-            android:adjustViewBounds="true"
-            android:contentDescription="TODO"
+            android:layout_height="94dp"
             android:src="@drawable/sun"
-            app:layout_constraintBottom_toTopOf="@+id/textViewTempeture"
+            app:layout_constraintBottom_toTopOf="@+id/cityName"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linerlayıputmenu" />
-
+            app:layout_constraintStart_toStartOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 </FrameLayout>

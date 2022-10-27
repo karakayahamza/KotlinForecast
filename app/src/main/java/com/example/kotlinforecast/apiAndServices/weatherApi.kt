@@ -1,6 +1,6 @@
-package com.example.kotlinforecast
+package com.example.kotlinforecast.apiAndServices
 
-import android.database.Observable
+import com.example.kotlinforecast.model.WeatherModel
 import retrofit2.http.GET
 import retrofit2.http.Query
     interface weatherApi {

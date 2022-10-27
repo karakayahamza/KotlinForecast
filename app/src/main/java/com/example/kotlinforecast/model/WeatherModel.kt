@@ -1,4 +1,4 @@
-package com.example.kotlinforecast
+package com.example.kotlinforecast.model
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity

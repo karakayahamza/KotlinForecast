@@ -3,11 +3,19 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/AndroidStudioProjects/KotlinForecast/app/src/main/res/drawable/menu.xml" value="0.2037037037037037" />
-        <entry key="..\:/AndroidStudioProjects/KotlinForecast/app/src/main/res/drawable/rounded_corner.xml" value="0.28177083333333336" />
-        <entry key="..\:/AndroidStudioProjects/KotlinForecast/app/src/main/res/drawable/text_border.xml" value="0.28489583333333335" />
-        <entry key="..\:/AndroidStudioProjects/KotlinForecast/app/src/main/res/layout/activity_main.xml" value="0.2754782700075322" />
-        <entry key="..\:/AndroidStudioProjects/KotlinForecast/app/src/main/res/layout/fragment_main.xml" value="0.2754782700075322" />
+        <entry key="..\:/AndroidStudioProjects/KotlinForecast/app/src/main/res/drawable/background_example.xml" value="0.28489583333333335" />
+        <entry key="..\:/AndroidStudioProjects/KotlinForecast/app/src/main/res/drawable/ic_thunder.xml" value="0.28489583333333335" />
+        <entry key="..\:/AndroidStudioProjects/KotlinForecast/app/src/main/res/layout/activity_main.xml" value="0.26875" />
+        <entry key="..\:/AndroidStudioProjects/KotlinForecast/app/src/main/res/layout/activity_screen_slide_pager.xml" value="0.2546875" />
+        <entry key="..\:/AndroidStudioProjects/KotlinForecast/app/src/main/res/layout/custom_alert_dialog.xml" value="0.26875" />
+        <entry key="..\:/AndroidStudioProjects/KotlinForecast/app/src/main/res/layout/fragment_enrty.xml" value="0.26875" />
+        <entry key="..\:/AndroidStudioProjects/KotlinForecast/app/src/main/res/layout/fragment_main.xml" value="0.26875" />
+        <entry key="..\:/AndroidStudioProjects/KotlinForecast/app/src/main/res/layout/fragment_screen_slide_page.xml" value="0.26875" />
+        <entry key="..\:/AndroidStudioProjects/KotlinForecast/app/src/main/res/layout/fragment_screen_slide_pager_activity.xml" value="0.26875" />
+        <entry key="..\:/AndroidStudioProjects/KotlinForecast/app/src/main/res/layout/fragment_splash.xml" value="0.26875" />
+        <entry key="..\:/AndroidStudioProjects/KotlinForecast/app/src/main/res/layout/fragment_test.xml" value="0.26875" />
+        <entry key="..\:/AndroidStudioProjects/KotlinForecast/app/src/main/res/layout/test.xml" value="0.26875" />
+        <entry key="..\:/AndroidStudioProjects/KotlinForecast/app/src/main/res/layout/test_fragment.xml" value="0.26875" />
         <entry key="..\:/AndroidStudioProjects/KotlinForecast/app/src/main/res/menu/menu.xml" value="0.26875" />
       </map>
     </option>
@@ -17,12 +25,5 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
-  </component>
-  <component name="VisualizationToolProject">
-    <option name="state">
-      <ProjectState>
-        <option name="scale" value="0.2754782700075322" />
-      </ProjectState>
-    </option>
   </component>
 </project>

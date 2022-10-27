@@ -16,5 +16,10 @@
         android:title="About"
         app:showAsAction="never" />
 
+    <item android:id="@+id/add_newCity"
+            app:showAsAction="never"
+            android:title="AddCity"/>
+
+
 
 </menu>
