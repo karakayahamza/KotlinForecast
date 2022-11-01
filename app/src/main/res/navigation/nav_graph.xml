@@ -16,7 +16,16 @@
         android:label="fragment_splash"
         tools:layout="@layout/fragment_splash" >
         <action
-            android:id="@+id/action_splashFragment_to_mainFragment"
+            android:id="@+id/action_splashFragment_to_tempFragment"
+            app:destination="@id/tempFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/tempFragment"
+        android:name="com.example.kotlinforecast.view.TempFragment"
+        android:label="fragment_temp"
+        tools:layout="@layout/fragment_temp" >
+        <action
+            android:id="@+id/action_tempFragment_to_mainFragment"
             app:destination="@id/mainFragment" />
     </fragment>
 </navigation>

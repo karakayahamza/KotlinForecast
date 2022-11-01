@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import com.example.kotlinforecast.databinding.FragmentMainBinding
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import com.example.kotlinforecast.R
 import com.example.kotlinforecast.model.WeatherModel
 import java.text.SimpleDateFormat
@@ -20,7 +21,6 @@ class MainFragment : Fragment() {
     private lateinit var viewModel: weatherViewModel
     private lateinit var weatherModel : WeatherModel
     private val fragmentTagArg = "tag"
-
 
     fun newInstance(cityName: String?): MainFragment {
         return newInstance(fragmentTagArg, cityName)
@@ -40,8 +40,6 @@ class MainFragment : Fragment() {
         return fragment
     }
 
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setHasOptionsMenu(true);
@@ -50,11 +48,10 @@ class MainFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         _binding = FragmentMainBinding.inflate(inflater, container, false)
-        val view = binding.root
-        return view
+        return binding.root
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -148,7 +145,6 @@ class MainFragment : Fragment() {
                         if (a!=0){
                             tv.text = convertDay
                         }
-
 
                         val temp :TextView= requireView().findViewById<TextView>(textMinTemps[a]) as TextView
                         temp.text = it.weatherList[x].main?.temp.toString().substringBefore(".")+"°C"
