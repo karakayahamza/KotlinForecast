@@ -614,7 +614,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="1dp"
-            android:gravity="center"
+            android:gravity="center_horizontal"
             android:orientation="horizontal"
             app:layout_constraintBottom_toTopOf="@+id/relativeLayout"
             app:layout_constraintEnd_toEndOf="parent"
@@ -683,7 +683,7 @@
 
                 <ImageView
                     android:id="@+id/imagepressure"
-                    android:layout_width="70dp"
+                    android:layout_width="80dp"
                     android:layout_height="50dp"
                     android:adjustViewBounds="true"
                     android:padding="20dp"
@@ -702,6 +702,7 @@
                     android:gravity="center"
                     android:maxLines="1"
                     android:text="50"
+                    android:layout_marginRight="20dp"
                     android:textColor="#DAD9D6"
                     android:textSize="20sp" />
             </LinearLayout>

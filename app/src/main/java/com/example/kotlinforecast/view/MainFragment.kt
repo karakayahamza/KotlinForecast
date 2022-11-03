@@ -1,24 +1,30 @@
 package com.example.kotlinforecast.view
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import com.example.kotlinforecast.databinding.FragmentMainBinding
 import android.widget.TextView
-import androidx.core.content.ContextCompat
 import com.example.kotlinforecast.R
 import com.example.kotlinforecast.model.WeatherModel
 import java.text.SimpleDateFormat
 import java.util.*
-import com.example.kotlinforecast.viewModel.weatherViewModel
+import com.example.kotlinforecast.viewModel.WeatherViewModel
+import com.google.android.material.snackbar.Snackbar
+import android.content.SharedPreferences
 
 
-class MainFragment : Fragment() {
+
+
+
+class MainFragment : Fragment(){
+
     private var _binding: FragmentMainBinding? = null
     private val binding get() = _binding!!
-    private lateinit var viewModel: weatherViewModel
+    private lateinit var viewModel: WeatherViewModel
     private lateinit var weatherModel : WeatherModel
     private val fragmentTagArg = "tag"
 
@@ -62,13 +68,11 @@ class MainFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel = ViewModelProviders.of(this)[weatherViewModel::class.java]
+        viewModel = ViewModelProviders.of(this)[WeatherViewModel::class.java]
         arguments?.getString("cityname")
             ?.let { viewModel.loadData(it,"61e8b0259c092b1b9a15474cd800ee25") }
         observeLiveData()
     }
-
-
 
     @SuppressLint("SetTextI18n", "SimpleDateFormat")
     private fun observeLiveData(){
@@ -150,6 +154,15 @@ class MainFragment : Fragment() {
                         temp.text = it.weatherList[x].main?.temp.toString().substringBefore(".")+"°C"
                         a++
                     }
+                }
+            }
+        })
+
+        viewModel.error.observe(viewLifecycleOwner,{error->
+            error?.let {
+                if (!it){
+                    viewModel.weathers.removeObservers(viewLifecycleOwner)
+                    Snackbar.make(binding.root.rootView, "Please check your internet connection.", Snackbar.LENGTH_LONG).show()
                 }
             }
         })

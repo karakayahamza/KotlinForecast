@@ -1,6 +1,5 @@
 package com.example.kotlinforecast.view
 
-import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -23,35 +22,22 @@ class SplashFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-
-
         _binding = FragmentSplashBinding.inflate(inflater, container, false)
-        val view = binding.root
-
-        Glide.with(this).load(com.example.kotlinforecast.R.drawable.weatheranim).into(binding.imageView4)
-
-
-        Handler().postDelayed({
-            findNavController().navigate(com.example.kotlinforecast.R.id.action_splashFragment_to_tempFragment)
-        }, 2500)
-
-        return view
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        //val bottomAnimation = AnimationUtils.loadAnimation(requireContext(),R.anim.bottom_anim)
 
         val topAnimation = AnimationUtils.loadAnimation(requireContext(),R.anim.top_anim)
-
-        //binding.imageView4.startAnimation(bottomAnimation)
         binding.imageView4.startAnimation(topAnimation)
 
+        Glide.with(this).load(R.drawable.weatheranim).into(binding.imageView4)
 
-    }
-    private fun onBoardingFinished(): Boolean{
-        val sharedPref = requireActivity().getSharedPreferences("onBoarding", Context.MODE_PRIVATE)
-        return sharedPref.getBoolean("Finished", false)
+
+        Handler().postDelayed({
+            findNavController().navigate(R.id.action_splashFragment_to_tempFragment)
+        }, 2500)
     }
 }

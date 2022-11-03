@@ -10,26 +10,28 @@ import io.reactivex.schedulers.Schedulers
 
 
 
-class weatherViewModel() : ViewModel() {
+class WeatherViewModel : ViewModel() {
     private var compositeDisposable: CompositeDisposable? = null
     private val weatherApiServices = com.example.kotlinforecast.apiAndServices.weatherApiServices()
 
-    val weathers = MutableLiveData<WeatherModel>()
-    private val error = MutableLiveData<Boolean>()
+
+    val weathers = MutableLiveData<WeatherModel?>()
+    val error = MutableLiveData<Boolean>()
+
     fun loadData(name:String,app_id: String){
         compositeDisposable = CompositeDisposable()
 
         compositeDisposable?.add(
             weatherApiServices.getData(name, app_id)
-                ?.subscribeOn(Schedulers.newThread())
+                .subscribeOn(Schedulers.newThread())
                 ?.observeOn(AndroidSchedulers.mainThread())
                 ?.subscribe({
                     weathers.value = it
-
+                    error.value = true
                 },{
                     error.value = false
                 })!!
         )
-
     }
+
 }

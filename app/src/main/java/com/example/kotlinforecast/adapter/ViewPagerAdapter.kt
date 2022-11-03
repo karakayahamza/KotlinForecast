@@ -40,7 +40,6 @@ class ViewPagerAdapter(fragmentManager: FragmentManager, FRAGMENT_TAG_ARG: Strin
             fragment.userVisibleHint = false
         }
         return fragment
-
     }
 
     override fun getCount(): Int {
@@ -80,10 +79,12 @@ class ViewPagerAdapter(fragmentManager: FragmentManager, FRAGMENT_TAG_ARG: Strin
     }
 
     override fun getItemPosition(`object`: Any): Int {
-        return this.fragmentsPosition[`object`] ?: return POSITION_UNCHANGED
+        //return this.fragmentsPosition[`object`] ?: return POSITION_UNCHANGED
+        val index = pages.indexOf(`object`)
+        return if (index == -1) POSITION_NONE else index
+
     }
 
-    // ---------------------------------- Page actions ----------------------------------
 
     // ---------------------------------- Page actions ----------------------------------
     fun addPage(fragment: Fragment?) {
@@ -94,7 +95,7 @@ class ViewPagerAdapter(fragmentManager: FragmentManager, FRAGMENT_TAG_ARG: Strin
         notifyDataSetChanged()
     }
 
-    /*fun removePage(position: Int) {
+    fun removePage(position: Int) {
         fragmentsPosition.clear()
         var pageFragment: Fragment = pages[position]
         var tag = pageFragment.requireArguments().getString(fragmentTagArg)
@@ -112,6 +113,8 @@ class ViewPagerAdapter(fragmentManager: FragmentManager, FRAGMENT_TAG_ARG: Strin
         }
         pages.removeAt(position)
         notifyDataSetChanged()
-    }*/
+    }
+
+
 
 }
