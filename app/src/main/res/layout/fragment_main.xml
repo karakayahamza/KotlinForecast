@@ -760,13 +760,18 @@
             android:shadowDy="1"
             android:shadowRadius="2"
             android:text="Izmir"
+            android:padding="5dp"
+            app:autoSizeMaxTextSize="60dp"
+            app:autoSizeMinTextSize="40dp"
+            app:autoSizeTextType="uniform"
+            android:maxLines="1"
             android:textColor="#DAD9D6"
             android:textSize="50sp"
             android:textStyle="italic"
             app:layout_constraintBottom_toTopOf="@+id/textViewTempeture"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            tools:ignore="MissingConstraints" />
+            tools:ignore="HardcodedText,MissingConstraints" />
 
         <ImageView
             android:id="@+id/imageView"

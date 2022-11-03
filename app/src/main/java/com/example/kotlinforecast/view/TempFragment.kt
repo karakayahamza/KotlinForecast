@@ -1,8 +1,10 @@
 package com.example.kotlinforecast.view
 
+import android.annotation.SuppressLint
 import android.app.AlertDialog
+import android.content.ContentValues.TAG
 import android.content.Context
-import android.content.DialogInterface
+import android.content.SharedPreferences
 import android.net.ConnectivityManager
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -23,13 +25,13 @@ import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.custom_alert_dialog.*
 import android.net.NetworkCapabilities
 import android.util.Log
-import androidx.test.core.app.ApplicationProvider
-import androidx.viewpager.widget.ViewPager
 import androidx.viewpager.widget.ViewPager.OnPageChangeListener
-import androidx.test.core.app.ApplicationProvider.getApplicationContext
+import com.google.gson.Gson
+import java.util.ArrayList
+import com.google.gson.reflect.TypeToken
 
-
-
+import android.preference.PreferenceManager
+import java.lang.reflect.Type
 
 
 class TempFragment : Fragment() {
@@ -39,8 +41,9 @@ class TempFragment : Fragment() {
     private lateinit var mCustomPagerAdapter: ViewPagerAdapter
     private lateinit var cld : LiveDataInternetConnections
     private val mainFragment = MainFragment()
-    private var citiesHashSet : HashSet<String> = HashSet()
-
+    //private var citiesHashSet : HashSet<String> = HashSet()
+    //lateinit var sharedPreferences : SharedPreferences
+    private var arrayList: ArrayList<String> = ArrayList()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -51,27 +54,32 @@ class TempFragment : Fragment() {
         return binding.root
     }
 
+    @SuppressLint("CommitPrefEdits")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         mCustomPagerAdapter = ViewPagerAdapter(parentFragmentManager, fragmentTagArg)
         binding.pager.adapter = mCustomPagerAdapter
         binding.pager.setPageTransformer(true, ZoomOutPageTransformer())
 
-        val pref = requireContext().getSharedPreferences("preferences", Context.MODE_PRIVATE);
 
-        citiesHashSet = pref.getStringSet("cities", HashSet()) as HashSet<String>
+        val sharedPreferences = requireActivity().getSharedPreferences("com.example.kotlinforecast.view",
+            Context.MODE_PRIVATE)
+
+        val gson1 = Gson()
+        val json1 = sharedPreferences.getString("TAG", "")
+        val type: Type =
+            object : TypeToken<List<String?>?>() {}.type
+        val arrayList: ArrayList<String> =
+            gson1.fromJson(json1, type)
 
 
 
-
-        citiesHashSet.forEach { s->
-            mCustomPagerAdapter.addPage(mainFragment.newInstance(s))
+        for (a in arrayList){
+            mCustomPagerAdapter.addPage(mainFragment.newInstance(a))
             binding.pager.currentItem = mCustomPagerAdapter.count
             mCustomPagerAdapter.notifyDataSetChanged()
-            println(s)
+            println(a)
         }
 
-        //mCustomPagerAdapter.addPage(mainFragment.newInstance("IZMIR"))
-        //mCustomPagerAdapter.addPage(mainFragment.newInstance("Ankara"))
 
         cld = LiveDataInternetConnections(activity?.application!!)
 
@@ -95,13 +103,17 @@ class TempFragment : Fragment() {
                         mBuilder.btn_dialog_add.setOnClickListener {
                                 if (isOnline(view.context)){
                                     val text : EditText = mDialogView.findViewById(R.id.et_dialog_add)
-                                    val placeName = text.text
 
-                                    if (!(citiesHashSet.contains(placeName.toString()))){
+                                    if (!(arrayList.contains(text.text.toString()))){
                                         mCustomPagerAdapter.addPage(mainFragment.newInstance(text.text.toString()))
                                         binding.pager.currentItem = mCustomPagerAdapter.count
-                                        citiesHashSet.add(placeName.toString().uppercase())
-                                        pref.edit().putStringSet("cities",citiesHashSet).apply()
+                                        arrayList.add(text.text.toString().uppercase())
+
+                                        val gson = Gson()
+
+                                        val json = gson.toJson(arrayList)
+
+                                        sharedPreferences.edit().putString("TAG",json).apply()
                                         mCustomPagerAdapter.notifyDataSetChanged()
                                     }
                                 }
@@ -158,5 +170,7 @@ class TempFragment : Fragment() {
         }
         return false
     }
+
+
 
 }
