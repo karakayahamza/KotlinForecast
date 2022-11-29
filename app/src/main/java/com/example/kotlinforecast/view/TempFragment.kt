@@ -2,9 +2,7 @@ package com.example.kotlinforecast.view
 
 import android.annotation.SuppressLint
 import android.app.AlertDialog
-import android.content.ContentValues.TAG
 import android.content.Context
-import android.content.SharedPreferences
 import android.net.ConnectivityManager
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -15,10 +13,8 @@ import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.PopupMenu
 import android.widget.Toast
-import androidx.navigation.fragment.findNavController
 import com.example.kotlinforecast.R
 import com.example.kotlinforecast.adapter.ViewPagerAdapter
-import com.example.kotlinforecast.anim.ZoomOutPageTransformer
 import com.example.kotlinforecast.databinding.FragmentTempBinding
 import com.example.kotlinforecast.viewModel.LiveDataInternetConnections
 import com.google.android.material.snackbar.Snackbar
@@ -29,10 +25,9 @@ import androidx.viewpager.widget.ViewPager.OnPageChangeListener
 import com.google.gson.Gson
 import java.util.ArrayList
 import com.google.gson.reflect.TypeToken
-
-import android.preference.PreferenceManager
 import java.lang.reflect.Type
-
+import com.example.kotlinforecast.anim.ZoomOutPageTransformer
+import kotlinx.android.synthetic.main.fragment_temp.*
 
 class TempFragment : Fragment() {
     private var _binding: FragmentTempBinding? = null
@@ -41,9 +36,6 @@ class TempFragment : Fragment() {
     private lateinit var mCustomPagerAdapter: ViewPagerAdapter
     private lateinit var cld : LiveDataInternetConnections
     private val mainFragment = MainFragment()
-    //private var citiesHashSet : HashSet<String> = HashSet()
-    //lateinit var sharedPreferences : SharedPreferences
-    private var arrayList: ArrayList<String> = ArrayList()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -59,6 +51,7 @@ class TempFragment : Fragment() {
         mCustomPagerAdapter = ViewPagerAdapter(parentFragmentManager, fragmentTagArg)
         binding.pager.adapter = mCustomPagerAdapter
         binding.pager.setPageTransformer(true, ZoomOutPageTransformer())
+        binding.pager.offscreenPageLimit = 2;
 
 
         val sharedPreferences = requireActivity().getSharedPreferences("com.example.kotlinforecast.view",
@@ -71,15 +64,12 @@ class TempFragment : Fragment() {
         val arrayList: ArrayList<String> =
             gson1.fromJson(json1, type)
 
-
-
         for (a in arrayList){
             mCustomPagerAdapter.addPage(mainFragment.newInstance(a))
             binding.pager.currentItem = mCustomPagerAdapter.count
             mCustomPagerAdapter.notifyDataSetChanged()
             println(a)
         }
-
 
         cld = LiveDataInternetConnections(activity?.application!!)
 
@@ -89,9 +79,20 @@ class TempFragment : Fragment() {
             inflater.inflate(R.menu.menu, popup.menu)
             popup.setOnMenuItemClickListener { menuItem ->
                 when (menuItem.itemId) {
-                    R.id.goOtherFragment -> {
-                        Toast.makeText(requireContext(), "Setting", Toast.LENGTH_SHORT).show()
-                        findNavController().navigate(com.example.kotlinforecast.R.id.action_tempFragment_to_mainFragment)
+                    R.id.delete_city -> {
+                        Toast.makeText(requireContext(), "Deleted", Toast.LENGTH_SHORT).show()
+                        mCustomPagerAdapter.removePage(binding.pager.currentItem)
+                        mCustomPagerAdapter.notifyDataSetChanged()
+
+                        /*val gson2 = Gson()
+                        val json2 = sharedPreferences.getString("TAG", "")
+                        val type1: Type =
+                            object : TypeToken<List<String?>?>() {}.type
+                        val arrayList: ArrayList<String> =
+                            gson1.fromJson(json2, type)
+                        arrayList.remove(pager)*/
+
+
                         popup.dismiss()
                     }
                     R.id.add_newCity -> {
@@ -170,7 +171,4 @@ class TempFragment : Fragment() {
         }
         return false
     }
-
-
-
 }

@@ -16,10 +16,6 @@ import com.example.kotlinforecast.viewModel.WeatherViewModel
 import com.google.android.material.snackbar.Snackbar
 import android.content.SharedPreferences
 
-
-
-
-
 class MainFragment : Fragment(){
 
     private var _binding: FragmentMainBinding? = null
@@ -55,7 +51,6 @@ class MainFragment : Fragment(){
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        // Inflate the layout for this fragment
         _binding = FragmentMainBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -99,7 +94,6 @@ class MainFragment : Fragment(){
                 binding.textwing.text = it.weatherList[0].wind?.speed.toString()
 
                 // Hourly tempetures
-
 
                 for (i in 0 until 8) {
                     val tv :TextView= requireView().findViewById<TextView>(textViews[i]) as TextView

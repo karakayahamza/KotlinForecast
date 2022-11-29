@@ -1,5 +1,7 @@
 package com.example.kotlinforecast.view
 
+import android.annotation.SuppressLint
+import android.graphics.drawable.AnimationDrawable
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -26,18 +28,22 @@ class SplashFragment : Fragment() {
         return binding.root
     }
 
+    @SuppressLint("UseCompatLoadingForDrawables")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
 
         val topAnimation = AnimationUtils.loadAnimation(requireContext(),R.anim.top_anim)
-        binding.imageView4.startAnimation(topAnimation)
+        val bottomAnimation = AnimationUtils.loadAnimation(requireContext(),R.anim.bottom_anim)
 
-        Glide.with(this).load(R.drawable.weatheranim).into(binding.imageView4)
 
+
+        binding.imageView.startAnimation(topAnimation)
+        Glide.with(this).load(R.drawable.weathergif).into(binding.imageView)
 
         Handler().postDelayed({
             findNavController().navigate(R.id.action_splashFragment_to_tempFragment)
-        }, 2500)
+        },4000)
+
     }
 }

@@ -1,5 +1,7 @@
 package com.example.kotlinforecast.adapter
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.view.View
 import androidx.viewpager.widget.PagerAdapter
 import androidx.fragment.app.FragmentManager
@@ -85,7 +87,6 @@ class ViewPagerAdapter(fragmentManager: FragmentManager, FRAGMENT_TAG_ARG: Strin
 
     }
 
-
     // ---------------------------------- Page actions ----------------------------------
     fun addPage(fragment: Fragment?) {
         fragmentsPosition
@@ -114,7 +115,4 @@ class ViewPagerAdapter(fragmentManager: FragmentManager, FRAGMENT_TAG_ARG: Strin
         pages.removeAt(position)
         notifyDataSetChanged()
     }
-
-
-
 }

@@ -3,12 +3,16 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/AndroidStudioProjects/KotlinForecast/app/src/main/res/drawable/animator.xml" value="0.28489583333333335" />
+        <entry key="..\:/AndroidStudioProjects/KotlinForecast/app/src/main/res/drawable/animatorvectordrawable.xml" value="0.28489583333333335" />
         <entry key="..\:/AndroidStudioProjects/KotlinForecast/app/src/main/res/drawable/background_example.xml" value="0.28489583333333335" />
+        <entry key="..\:/AndroidStudioProjects/KotlinForecast/app/src/main/res/drawable/bg.xml" value="0.28489583333333335" />
         <entry key="..\:/AndroidStudioProjects/KotlinForecast/app/src/main/res/drawable/ic_thunder.xml" value="0.28489583333333335" />
         <entry key="..\:/AndroidStudioProjects/KotlinForecast/app/src/main/res/drawable/rounded2_corner.xml" value="0.15208333333333332" />
         <entry key="..\:/AndroidStudioProjects/KotlinForecast/app/src/main/res/drawable/rounded_corner.xml" value="0.15208333333333332" />
         <entry key="..\:/AndroidStudioProjects/KotlinForecast/app/src/main/res/drawable/sunnybackground.xml" value="0.28489583333333335" />
         <entry key="..\:/AndroidStudioProjects/KotlinForecast/app/src/main/res/drawable/text_border.xml" value="0.28489583333333335" />
+        <entry key="..\:/AndroidStudioProjects/KotlinForecast/app/src/main/res/drawable/vectordrawable.xml" value="0.28489583333333335" />
         <entry key="..\:/AndroidStudioProjects/KotlinForecast/app/src/main/res/layout/activity_main.xml" value="0.26875" />
         <entry key="..\:/AndroidStudioProjects/KotlinForecast/app/src/main/res/layout/activity_screen_slide_pager.xml" value="0.2546875" />
         <entry key="..\:/AndroidStudioProjects/KotlinForecast/app/src/main/res/layout/custom_alert_dialog.xml" value="0.26875" />

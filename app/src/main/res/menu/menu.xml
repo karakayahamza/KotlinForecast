@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    >
-    <item android:id="@+id/goOtherFragment"
-        app:showAsAction="never"
-        android:title="Other Fragment"/>
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item android:id="@+id/add_newCity"
-            app:showAsAction="never"
-            android:title="AddCity"/>
+        app:showAsAction="never"
+        android:title="AddCity"/>
+
+    <item android:id="@+id/delete_city"
+        app:showAsAction="never"
+        android:title="Delete"/>
 </menu>
