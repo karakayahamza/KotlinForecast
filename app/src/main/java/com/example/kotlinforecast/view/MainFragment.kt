@@ -1,7 +1,6 @@
 package com.example.kotlinforecast.view
 
 import android.annotation.SuppressLint
-import android.content.Context
 import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
@@ -14,7 +13,6 @@ import java.text.SimpleDateFormat
 import java.util.*
 import com.example.kotlinforecast.viewModel.WeatherViewModel
 import com.google.android.material.snackbar.Snackbar
-import android.content.SharedPreferences
 
 class MainFragment : Fragment(){
 
@@ -53,11 +51,6 @@ class MainFragment : Fragment(){
     ): View {
         _binding = FragmentMainBinding.inflate(inflater, container, false)
         return binding.root
-    }
-
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        inflater.inflate(R.menu.menu, menu);
-        super.onCreateOptionsMenu(menu, inflater)
     }
 
 

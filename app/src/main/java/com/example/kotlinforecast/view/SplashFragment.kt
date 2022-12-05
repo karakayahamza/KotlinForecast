@@ -45,5 +45,7 @@ class SplashFragment : Fragment() {
             findNavController().navigate(R.id.action_splashFragment_to_tempFragment)
         },4000)
 
+
+
     }
 }

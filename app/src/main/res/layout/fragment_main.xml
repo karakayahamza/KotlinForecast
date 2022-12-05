@@ -25,7 +25,8 @@
             android:weightSum="1"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/relativeLayout">
 
 
             <LinearLayout
@@ -264,6 +265,7 @@
             app:layout_constraintBottom_toTopOf="@+id/temps"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linerlayoutInfo"
             tools:ignore="MissingConstraints">
 
             <LinearLayout
@@ -288,6 +290,7 @@
                         android:shadowDy="1"
                         android:shadowRadius="2"
                         android:text="50"
+                        android:textColor="#DAD9D6"
                         android:textSize="20sp" />
 
                     <ImageView
@@ -309,6 +312,7 @@
                         android:shadowDy="1"
                         android:shadowRadius="2"
                         android:text="00:00"
+                        android:textColor="#DAD9D6"
                         android:textSize="10dp" />
 
                 </LinearLayout>
@@ -330,6 +334,7 @@
                         android:shadowDy="1"
                         android:shadowRadius="2"
                         android:text="50"
+                        android:textColor="#DAD9D6"
                         android:textSize="20sp" />
 
                     <ImageView
@@ -351,6 +356,7 @@
                         android:shadowDy="1"
                         android:shadowRadius="2"
                         android:text="00:00"
+                        android:textColor="#DAD9D6"
                         android:textSize="10dp" />
 
                 </LinearLayout>
@@ -372,6 +378,7 @@
                         android:shadowDy="1"
                         android:shadowRadius="2"
                         android:text="50"
+                        android:textColor="#DAD9D6"
                         android:textSize="20sp" />
 
                     <ImageView
@@ -393,6 +400,7 @@
                         android:shadowDy="1"
                         android:shadowRadius="2"
                         android:text="00:00"
+                        android:textColor="#DAD9D6"
                         android:textSize="10dp" />
 
                 </LinearLayout>
@@ -414,6 +422,7 @@
                         android:shadowDy="1"
                         android:shadowRadius="2"
                         android:text="50"
+                        android:textColor="#DAD9D6"
                         android:textSize="20sp" />
 
                     <ImageView
@@ -435,6 +444,7 @@
                         android:shadowDy="1"
                         android:shadowRadius="2"
                         android:text="00:00"
+                        android:textColor="#DAD9D6"
                         android:textSize="10dp" />
 
                 </LinearLayout>
@@ -456,6 +466,7 @@
                         android:shadowDy="1"
                         android:shadowRadius="2"
                         android:text="50"
+                        android:textColor="#DAD9D6"
                         android:textSize="20sp" />
 
                     <ImageView
@@ -477,6 +488,7 @@
                         android:shadowDy="1"
                         android:shadowRadius="2"
                         android:text="00:00"
+                        android:textColor="#DAD9D6"
                         android:textSize="10dp" />
 
                 </LinearLayout>
@@ -498,6 +510,7 @@
                         android:shadowDy="1"
                         android:shadowRadius="2"
                         android:text="50"
+                        android:textColor="#DAD9D6"
                         android:textSize="20sp" />
 
                     <ImageView
@@ -519,6 +532,7 @@
                         android:shadowDy="1"
                         android:shadowRadius="2"
                         android:text="00:00"
+                        android:textColor="#DAD9D6"
                         android:textSize="10dp" />
 
                 </LinearLayout>
@@ -540,6 +554,7 @@
                         android:shadowDy="1"
                         android:shadowRadius="2"
                         android:text="50"
+                        android:textColor="#DAD9D6"
                         android:textSize="20sp" />
 
                     <ImageView
@@ -561,6 +576,7 @@
                         android:shadowDy="1"
                         android:shadowRadius="2"
                         android:text="00:00"
+                        android:textColor="#DAD9D6"
                         android:textSize="10dp" />
 
                 </LinearLayout>
@@ -582,6 +598,7 @@
                         android:shadowDy="1"
                         android:shadowRadius="2"
                         android:text="50"
+                        android:textColor="#DAD9D6"
                         android:textSize="20sp" />
 
                     <ImageView
@@ -603,6 +620,7 @@
                         android:shadowDy="1"
                         android:shadowRadius="2"
                         android:text="00:00"
+                        android:textColor="#DAD9D6"
                         android:textSize="10dp" />
 
                 </LinearLayout>
@@ -618,7 +636,8 @@
             android:orientation="horizontal"
             app:layout_constraintBottom_toTopOf="@+id/relativeLayout"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textDay">
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -698,21 +717,84 @@
                     android:id="@+id/textpressure"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
+                    android:layout_marginRight="20dp"
                     android:autoSizeTextType="uniform"
                     android:gravity="center"
                     android:maxLines="1"
                     android:text="50"
-                    android:layout_marginRight="20dp"
                     android:textColor="#DAD9D6"
                     android:textSize="20sp" />
             </LinearLayout>
 
         </LinearLayout>
 
+
+        <TextView
+            android:id="@+id/textDay"
+            android:layout_width="302dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="55dp"
+            android:layout_marginEnd="55dp"
+            android:layout_marginBottom="119dp"
+            android:autoSizeTextType="uniform"
+            android:gravity="center"
+            android:maxLines="1"
+            android:padding="5dp"
+            android:shadowColor="@color/black"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:shadowRadius="2"
+            android:text="TUESDAY"
+            android:textColor="#DAD9D6"
+            android:textSize="15sp"
+            android:textStyle="italic"
+            app:layout_constraintBottom_toTopOf="@+id/linerlayoutInfo"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cityName"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/cityName"
+            android:layout_width="315dp"
+            android:layout_height="51dp"
+            android:layout_marginStart="53dp"
+            android:layout_marginEnd="53dp"
+            android:autoSizeTextType="uniform"
+            android:gravity="center"
+            android:maxLines="1"
+            android:padding="5dp"
+            android:shadowColor="@color/black"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:shadowRadius="2"
+            android:text="Izmir"
+            android:textColor="#DAD9D6"
+            android:textSize="50sp"
+            android:textStyle="italic"
+            app:autoSizeMaxTextSize="60dp"
+            app:autoSizeMinTextSize="40dp"
+            app:autoSizeTextType="uniform"
+            app:layout_constraintBottom_toTopOf="@+id/textDay"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="HardcodedText,MissingConstraints" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="206dp"
+            android:layout_height="63dp"
+            android:src="@drawable/sun"
+            app:layout_constraintBottom_toTopOf="@+id/textViewTempeture"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textDay" />
+
         <TextView
             android:id="@+id/textViewTempeture"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_width="319dp"
+            android:layout_height="67dp"
             android:autoSizeTextType="uniform"
             android:gravity="center"
             android:shadowColor="@color/black"
@@ -724,63 +806,9 @@
             android:textSize="55sp"
             app:layout_constraintBottom_toTopOf="@+id/linerlayoutInfo"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.619"
             app:layout_constraintStart_toStartOf="parent"
             tools:ignore="MissingConstraints" />
-
-
-        <TextView
-            android:id="@+id/textDay"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:autoSizeTextType="uniform"
-            android:gravity="center"
-            android:padding="5dp"
-            android:shadowColor="@color/black"
-            android:shadowDx="1"
-            android:shadowDy="1"
-            android:shadowRadius="2"
-            android:text="TUESDAY"
-            android:textColor="#DAD9D6"
-            android:textSize="15sp"
-            android:textStyle="italic"
-            app:layout_constraintBottom_toTopOf="@+id/imageView"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="MissingConstraints" />
-
-        <TextView
-            android:id="@+id/cityName"
-            android:layout_width="0dp"
-            android:layout_height="94dp"
-            android:autoSizeTextType="uniform"
-            android:gravity="center"
-            android:shadowColor="@color/black"
-            android:shadowDx="1"
-            android:shadowDy="1"
-            android:shadowRadius="2"
-            android:text="Izmir"
-            android:padding="5dp"
-            app:autoSizeMaxTextSize="60dp"
-            app:autoSizeMinTextSize="40dp"
-            app:autoSizeTextType="uniform"
-            android:maxLines="1"
-            android:textColor="#DAD9D6"
-            android:textSize="50sp"
-            android:textStyle="italic"
-            app:layout_constraintBottom_toTopOf="@+id/textViewTempeture"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:ignore="HardcodedText,MissingConstraints" />
-
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="wrap_content"
-            android:layout_height="94dp"
-            android:src="@drawable/sun"
-            app:layout_constraintBottom_toTopOf="@+id/cityName"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

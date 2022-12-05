@@ -15,17 +15,24 @@
         <entry key="..\:/AndroidStudioProjects/KotlinForecast/app/src/main/res/drawable/vectordrawable.xml" value="0.28489583333333335" />
         <entry key="..\:/AndroidStudioProjects/KotlinForecast/app/src/main/res/layout/activity_main.xml" value="0.26875" />
         <entry key="..\:/AndroidStudioProjects/KotlinForecast/app/src/main/res/layout/activity_screen_slide_pager.xml" value="0.2546875" />
+        <entry key="..\:/AndroidStudioProjects/KotlinForecast/app/src/main/res/layout/content_main.xml" value="0.26875" />
         <entry key="..\:/AndroidStudioProjects/KotlinForecast/app/src/main/res/layout/custom_alert_dialog.xml" value="0.26875" />
         <entry key="..\:/AndroidStudioProjects/KotlinForecast/app/src/main/res/layout/fragment_enrty.xml" value="0.26875" />
+        <entry key="..\:/AndroidStudioProjects/KotlinForecast/app/src/main/res/layout/fragment_gallery.xml" value="0.26875" />
+        <entry key="..\:/AndroidStudioProjects/KotlinForecast/app/src/main/res/layout/fragment_home.xml" value="0.26875" />
         <entry key="..\:/AndroidStudioProjects/KotlinForecast/app/src/main/res/layout/fragment_main.xml" value="0.26875" />
         <entry key="..\:/AndroidStudioProjects/KotlinForecast/app/src/main/res/layout/fragment_screen_slide_page.xml" value="0.26875" />
         <entry key="..\:/AndroidStudioProjects/KotlinForecast/app/src/main/res/layout/fragment_screen_slide_pager_activity.xml" value="0.26875" />
+        <entry key="..\:/AndroidStudioProjects/KotlinForecast/app/src/main/res/layout/fragment_slideshow.xml" value="0.26875" />
         <entry key="..\:/AndroidStudioProjects/KotlinForecast/app/src/main/res/layout/fragment_splash.xml" value="0.26875" />
         <entry key="..\:/AndroidStudioProjects/KotlinForecast/app/src/main/res/layout/fragment_temp.xml" value="0.26875" />
         <entry key="..\:/AndroidStudioProjects/KotlinForecast/app/src/main/res/layout/fragment_test.xml" value="0.26875" />
+        <entry key="..\:/AndroidStudioProjects/KotlinForecast/app/src/main/res/layout/new_header.xml" value="0.26875" />
         <entry key="..\:/AndroidStudioProjects/KotlinForecast/app/src/main/res/layout/test.xml" value="0.26875" />
         <entry key="..\:/AndroidStudioProjects/KotlinForecast/app/src/main/res/layout/test_fragment.xml" value="0.26875" />
+        <entry key="..\:/AndroidStudioProjects/KotlinForecast/app/src/main/res/menu/activity_main_drawer.xml" value="0.26875" />
         <entry key="..\:/AndroidStudioProjects/KotlinForecast/app/src/main/res/menu/menu.xml" value="0.26875" />
+        <entry key="..\:/AndroidStudioProjects/KotlinForecast/app/src/main/res/menu/new_header_menu.xml" value="0.26875" />
       </map>
     </option>
   </component>
