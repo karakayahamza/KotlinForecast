@@ -89,7 +89,7 @@ class ViewPagerAdapter(fragmentManager: FragmentManager, FRAGMENT_TAG_ARG: Strin
 
     // ---------------------------------- Page actions ----------------------------------
     fun addPage(fragment: Fragment?) {
-        fragmentsPosition
+        //fragmentsPosition
         if (fragment != null) {
             pages.add(fragment)
         }

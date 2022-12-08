@@ -13,7 +13,6 @@ import com.example.kotlinforecast.databinding.FragmentTempBinding
 import com.example.kotlinforecast.viewModel.LiveDataInternetConnections
 import android.net.NetworkCapabilities
 import android.util.Log
-import android.view.MenuItem
 import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.widget.EditText
@@ -36,7 +35,7 @@ class TempFragment : Fragment() {
     private lateinit var cld : LiveDataInternetConnections
     private val mainFragment = MainFragment()
     private lateinit var  toggle : ActionBarDrawerToggle
-    private  val activity =  AppCompatActivity()
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -73,14 +72,13 @@ class TempFragment : Fragment() {
 
         for (a in arrayList){
             mCustomPagerAdapter.addPage(mainFragment.newInstance(a))
-            binding.pager.currentItem = mCustomPagerAdapter.count
+            binding.pager.currentItem = 0
             mCustomPagerAdapter.notifyDataSetChanged()
-            println(a)
         }
         // Internet Check LiveData
         cld = LiveDataInternetConnections(activity?.application!!)
 
-
+        val activity = activity as AppCompatActivity
         // Navigation Drawer Initilazite and Settings
         activity.setSupportActionBar(binding.myToolbar)
         activity.supportActionBar?.setDisplayHomeAsUpEnabled(true)
@@ -91,8 +89,7 @@ class TempFragment : Fragment() {
         toggle.syncState()
 
 
-
-        binding.navView.getHeaderView(0).findViewById<EditText>(R.id.placeName).setOnFocusChangeListener { v, hasFocus ->
+        binding.navView.getHeaderView(0).findViewById<EditText>(R.id.placeName).setOnFocusChangeListener { _, hasFocus ->
             if (!hasFocus){
                 val imm = requireActivity().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager?
                 imm!!.hideSoftInputFromWindow(view.windowToken,0)
@@ -115,8 +112,6 @@ class TempFragment : Fragment() {
             }
             true
         }
-
-
 
         /*val popup = PopupMenu(requireContext(), view)
         val inflater: MenuInflater = popup.menuInflater
@@ -255,11 +250,5 @@ class TempFragment : Fragment() {
             }
         }
         return false
-    }
-
-    override fun onOptionsItemSelected(menuItem: MenuItem): Boolean {
-        if (menuItem.getItemId() === android.R.id.home) {
-        }
-        return super.onOptionsItemSelected(menuItem)
     }
 }

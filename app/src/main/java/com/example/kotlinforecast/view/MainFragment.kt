@@ -81,7 +81,7 @@ class MainFragment : Fragment(){
 
                 binding.textDay.text = convertTime
                 binding.cityName.text = it.city.name
-                binding.textViewTempeture.text = it.weatherList[0].main?.temp.toString().substringBefore(".")+"°C"
+                binding.textViewTempeture.text = it.weatherList[0].main?.temp.toString().substringBefore(".")
                 binding.textHumm.text = it.weatherList[0].main?.humidity.toString()
                 binding.textpressure.text = it.weatherList[0].main?.pressure.toString()
                 binding.textwing.text = it.weatherList[0].wind?.speed.toString()
@@ -90,7 +90,7 @@ class MainFragment : Fragment(){
 
                 for (i in 0 until 8) {
                     val tv :TextView= requireView().findViewById<TextView>(textViews[i]) as TextView
-                    tv.text = it.weatherList[i].main?.temp.toString().substringBefore(".")+"°C"
+                    tv.text = it.weatherList[i].main?.temp.toString().substringBefore(".")+"\u2103"
 
                     val time : TextView = requireView().findViewById<TextView>(textTimes[i]) as TextView
 
@@ -132,13 +132,13 @@ class MainFragment : Fragment(){
 
 
                     if (convertTime.toString() =="12:00"){
-                        val tv :TextView= requireView().findViewById<TextView>(textDays[a]) as TextView
+                        val tv :TextView= requireView().findViewById(textDays[a]) as TextView
                         if (a!=0){
                             tv.text = convertDay
                         }
 
                         val temp :TextView= requireView().findViewById<TextView>(textMinTemps[a]) as TextView
-                        temp.text = it.weatherList[x].main?.temp.toString().substringBefore(".")+"°C"
+                        temp.text = it.weatherList[x].main?.temp.toString().substringBefore(".")+"\u2103"
                         a++
                     }
                 }
