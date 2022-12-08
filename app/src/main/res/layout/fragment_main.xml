@@ -6,7 +6,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/coolbackground"
+    android:background="@drawable/background"
     tools:context=".view.MainFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -49,8 +49,10 @@
                     android:shadowDy="1"
                     android:shadowRadius="2"
                     android:text="TODAY"
+                    android:fontFamily="@font/kiona"
                     android:textSize="15sp"
-                    tools:ignore="DuplicateIds" />
+                    tools:ignore="DuplicateIds"
+                    />
 
                 <TextView
                     android:id="@+id/firstMinTemp1"
@@ -95,6 +97,7 @@
                     android:shadowDy="1"
                     android:shadowRadius="2"
                     android:text="FRİDAY"
+                    android:fontFamily="@font/kiona"
                     android:textSize="15sp"
                     tools:ignore="DuplicateIds" />
 
@@ -109,6 +112,7 @@
                     android:shadowDy="1"
                     android:shadowRadius="2"
                     android:text="25"
+                    android:fontFamily="@font/kiona"
                     android:textSize="20sp" />
 
                 <ImageView
@@ -140,7 +144,8 @@
                     android:shadowRadius="2"
                     android:text="FRİDAY"
                     android:textSize="15sp"
-                    tools:ignore="DuplicateIds" />
+                    tools:ignore="DuplicateIds"
+                    android:fontFamily="@font/kiona"/>
 
                 <TextView
                     android:id="@+id/firstMinTemp3"
@@ -184,7 +189,8 @@
                     android:shadowRadius="2"
                     android:text="FRİDAY"
                     android:textSize="15sp"
-                    tools:ignore="DuplicateIds" />
+                    tools:ignore="DuplicateIds"
+                    android:fontFamily="@font/kiona"/>
 
                 <TextView
                     android:id="@+id/firstMinTemp4"
@@ -197,7 +203,9 @@
                     android:shadowDy="1"
                     android:shadowRadius="2"
                     android:text="25"
-                    android:textSize="20sp" />
+                    android:textSize="20sp"
+                    android:fontFamily="@font/kiona"
+                    />
 
                 <ImageView
                     android:id="@+id/icon4"
@@ -228,7 +236,8 @@
                     android:shadowRadius="2"
                     android:text="FRİDAY"
                     android:textSize="15sp"
-                    tools:ignore="DuplicateIds" />
+                    tools:ignore="DuplicateIds"
+                    android:fontFamily="@font/kiona"/>
 
                 <TextView
                     android:id="@+id/firstMinTemp5"
@@ -248,7 +257,8 @@
                     android:layout_width="0dp"
                     android:layout_height="46dp"
                     android:layout_weight="1"
-                    app:srcCompat="@drawable/sun" />
+                    app:srcCompat="@drawable/sun"
+                    android:fontFamily="@font/kiona"/>
             </LinearLayout>
 
         </LinearLayout>
@@ -290,6 +300,7 @@
                         android:shadowDy="1"
                         android:shadowRadius="2"
                         android:text="50"
+                        android:fontFamily="@font/kiona"
                         android:textColor="#DAD9D6"
                         android:textSize="20sp" />
 
@@ -313,7 +324,8 @@
                         android:shadowRadius="2"
                         android:text="00:00"
                         android:textColor="#DAD9D6"
-                        android:textSize="10dp" />
+                        android:textSize="10dp"
+                        android:fontFamily="@font/kiona"/>
 
                 </LinearLayout>
 
@@ -334,6 +346,7 @@
                         android:shadowDy="1"
                         android:shadowRadius="2"
                         android:text="50"
+                        android:fontFamily="@font/kiona"
                         android:textColor="#DAD9D6"
                         android:textSize="20sp" />
 
@@ -357,7 +370,8 @@
                         android:shadowRadius="2"
                         android:text="00:00"
                         android:textColor="#DAD9D6"
-                        android:textSize="10dp" />
+                        android:textSize="10dp"
+                        android:fontFamily="@font/kiona"/>
 
                 </LinearLayout>
 
@@ -378,6 +392,7 @@
                         android:shadowDy="1"
                         android:shadowRadius="2"
                         android:text="50"
+                        android:fontFamily="@font/kiona"
                         android:textColor="#DAD9D6"
                         android:textSize="20sp" />
 
@@ -401,7 +416,8 @@
                         android:shadowRadius="2"
                         android:text="00:00"
                         android:textColor="#DAD9D6"
-                        android:textSize="10dp" />
+                        android:textSize="10dp"
+                        android:fontFamily="@font/kiona"/>
 
                 </LinearLayout>
 
@@ -422,6 +438,7 @@
                         android:shadowDy="1"
                         android:shadowRadius="2"
                         android:text="50"
+                        android:fontFamily="@font/kiona"
                         android:textColor="#DAD9D6"
                         android:textSize="20sp" />
 
@@ -445,6 +462,7 @@
                         android:shadowRadius="2"
                         android:text="00:00"
                         android:textColor="#DAD9D6"
+                        android:fontFamily="@font/kiona"
                         android:textSize="10dp" />
 
                 </LinearLayout>
@@ -466,6 +484,7 @@
                         android:shadowDy="1"
                         android:shadowRadius="2"
                         android:text="50"
+                        android:fontFamily="@font/kiona"
                         android:textColor="#DAD9D6"
                         android:textSize="20sp" />
 
@@ -489,6 +508,7 @@
                         android:shadowRadius="2"
                         android:text="00:00"
                         android:textColor="#DAD9D6"
+                        android:fontFamily="@font/kiona"
                         android:textSize="10dp" />
 
                 </LinearLayout>
@@ -511,7 +531,8 @@
                         android:shadowRadius="2"
                         android:text="50"
                         android:textColor="#DAD9D6"
-                        android:textSize="20sp" />
+                        android:textSize="20sp"
+                        android:fontFamily="@font/kiona"/>
 
                     <ImageView
                         android:id="@+id/imageViewTemp7"
@@ -533,7 +554,8 @@
                         android:shadowRadius="2"
                         android:text="00:00"
                         android:textColor="#DAD9D6"
-                        android:textSize="10dp" />
+                        android:textSize="10dp"
+                        android:fontFamily="@font/kiona"/>
 
                 </LinearLayout>
 
@@ -555,7 +577,8 @@
                         android:shadowRadius="2"
                         android:text="50"
                         android:textColor="#DAD9D6"
-                        android:textSize="20sp" />
+                        android:textSize="20sp"
+                        android:fontFamily="@font/kiona"/>
 
                     <ImageView
                         android:id="@+id/imageViewTemp8"
@@ -577,7 +600,8 @@
                         android:shadowRadius="2"
                         android:text="00:00"
                         android:textColor="#DAD9D6"
-                        android:textSize="10dp" />
+                        android:textSize="10dp"
+                        android:fontFamily="@font/kiona"/>
 
                 </LinearLayout>
 
@@ -599,7 +623,8 @@
                         android:shadowRadius="2"
                         android:text="50"
                         android:textColor="#DAD9D6"
-                        android:textSize="20sp" />
+                        android:textSize="20sp"
+                        android:fontFamily="@font/kiona"/>
 
                     <ImageView
                         android:id="@+id/imageViewTemp9"
@@ -621,7 +646,8 @@
                         android:shadowRadius="2"
                         android:text="00:00"
                         android:textColor="#DAD9D6"
-                        android:textSize="10dp" />
+                        android:textSize="10dp"
+                        android:fontFamily="@font/kiona"/>
 
                 </LinearLayout>
             </LinearLayout>
@@ -663,7 +689,8 @@
                     android:gravity="center"
                     android:text="50"
                     android:textColor="#DAD9D6"
-                    android:textSize="20sp" />
+                    android:textSize="20sp"
+                    android:fontFamily="@font/kiona"/>
             </LinearLayout>
 
 
@@ -691,6 +718,7 @@
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:text="50"
+                    android:fontFamily="@font/kiona"
                     android:textColor="#DAD9D6"
                     android:textSize="20sp" />
             </LinearLayout>
@@ -722,6 +750,7 @@
                     android:gravity="center"
                     android:maxLines="1"
                     android:text="50"
+                    android:fontFamily="@font/kiona"
                     android:textColor="#DAD9D6"
                     android:textSize="20sp" />
             </LinearLayout>
@@ -747,7 +776,7 @@
             android:text="TUESDAY"
             android:textColor="#DAD9D6"
             android:textSize="15sp"
-            android:textStyle="italic"
+            android:fontFamily="@font/kiona"
             app:layout_constraintBottom_toTopOf="@+id/linerlayoutInfo"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -771,7 +800,7 @@
             android:text="Izmir"
             android:textColor="#DAD9D6"
             android:textSize="50sp"
-            android:textStyle="italic"
+            android:fontFamily="@font/kiona"
             app:autoSizeMaxTextSize="60dp"
             app:autoSizeMinTextSize="40dp"
             app:autoSizeTextType="uniform"
@@ -804,6 +833,7 @@
             android:text="20,1"
             android:textColor="#DAD9D6"
             android:textSize="55sp"
+            android:fontFamily="@font/kiona"
             app:layout_constraintBottom_toTopOf="@+id/linerlayoutInfo"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.619"

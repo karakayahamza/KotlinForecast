@@ -13,7 +13,11 @@ import com.example.kotlinforecast.databinding.FragmentTempBinding
 import com.example.kotlinforecast.viewModel.LiveDataInternetConnections
 import android.net.NetworkCapabilities
 import android.util.Log
-import androidx.appcompat.app.ActionBarDrawerToggle
+import android.view.MenuItem
+import android.view.inputmethod.InputMethodManager
+import android.widget.Button
+import android.widget.EditText
+import android.widget.Toast
 import androidx.viewpager.widget.ViewPager.OnPageChangeListener
 import com.google.gson.Gson
 import java.util.ArrayList
@@ -21,6 +25,8 @@ import com.google.gson.reflect.TypeToken
 import java.lang.reflect.Type
 import com.example.kotlinforecast.anim.ZoomOutPageTransformer
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.ActionBarDrawerToggle
+import com.example.kotlinforecast.R
 
 class TempFragment : Fragment() {
     private var _binding: FragmentTempBinding? = null
@@ -29,6 +35,8 @@ class TempFragment : Fragment() {
     private lateinit var mCustomPagerAdapter: ViewPagerAdapter
     private lateinit var cld : LiveDataInternetConnections
     private val mainFragment = MainFragment()
+    private lateinit var  toggle : ActionBarDrawerToggle
+    private  val activity =  AppCompatActivity()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,10 +57,10 @@ class TempFragment : Fragment() {
         mCustomPagerAdapter = ViewPagerAdapter(parentFragmentManager, fragmentTagArg)
         binding.pager.adapter = mCustomPagerAdapter
         binding.pager.setPageTransformer(true, ZoomOutPageTransformer())
-        binding.pager.offscreenPageLimit = 1;
+        binding.pager.offscreenPageLimit = 5
 
 
-
+        // Save and load data
         val sharedPreferences = requireActivity().getSharedPreferences("com.example.kotlinforecast.view",
             Context.MODE_PRIVATE)
 
@@ -69,24 +77,44 @@ class TempFragment : Fragment() {
             mCustomPagerAdapter.notifyDataSetChanged()
             println(a)
         }
-
+        // Internet Check LiveData
         cld = LiveDataInternetConnections(activity?.application!!)
 
 
+        // Navigation Drawer Initilazite and Settings
+        activity.setSupportActionBar(binding.myToolbar)
+        activity.supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        val toolbar = binding.toolbar
+        toggle = ActionBarDrawerToggle(requireActivity(),binding.myDrawerLayout,binding.myToolbar,
+            R.string.open, R.string.close)
+        binding.myDrawerLayout.addDrawerListener(toggle)
+        toggle.syncState()
 
 
-        val activity = activity as AppCompatActivity?
 
-        activity!!.setSupportActionBar(toolbar)
+        binding.navView.getHeaderView(0).findViewById<EditText>(R.id.placeName).setOnFocusChangeListener { v, hasFocus ->
+            if (!hasFocus){
+                val imm = requireActivity().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager?
+                imm!!.hideSoftInputFromWindow(view.windowToken,0)
+            }
+        }
 
-        // using toolbar as ActionBar
-        //val activity = activity as AppCompatActivity
+        binding.navView.getHeaderView(0).findViewById<Button>(R.id.add_button).setOnClickListener {
+            Toast.makeText(requireContext(),"Helloodaskdasodkas",Toast.LENGTH_SHORT).show()
+            val imm = requireActivity().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager?
+            imm!!.hideSoftInputFromWindow(view.windowToken,0)
 
-        //*******************************************************
-        //activity.setSupportActionBar(toolbar) //*****
-        //*******************************************************
+        }
+
+        binding.navView.setNavigationItemSelectedListener {
+            when(it.itemId){
+                R.id.nav_home -> Toast.makeText(requireContext(),"Clicked Home",Toast.LENGTH_SHORT).show()
+                R.id.nav_users -> Toast.makeText(requireContext(),"Clicked User",Toast.LENGTH_SHORT).show()
+                R.id.nav_addblogs -> Toast.makeText(requireContext(),"Clicked Blogs",Toast.LENGTH_SHORT).show()
+                R.id.nav_chat -> Toast.makeText(requireContext(),"Clicked Chat",Toast.LENGTH_SHORT).show()
+            }
+            true
+        }
 
 
 
@@ -227,5 +255,11 @@ class TempFragment : Fragment() {
             }
         }
         return false
+    }
+
+    override fun onOptionsItemSelected(menuItem: MenuItem): Boolean {
+        if (menuItem.getItemId() === android.R.id.home) {
+        }
+        return super.onOptionsItemSelected(menuItem)
     }
 }
