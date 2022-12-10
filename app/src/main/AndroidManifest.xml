@@ -8,10 +8,13 @@
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label=""
+        android:label="Weather Forecast"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Design.NoActionBar" >
+        android:theme="@style/NoActionBarStyle"
+        android:usesCleartextTraffic="true"
+        >
+        <!-- Important for glide and other internet connections -->
         <activity
             android:name=".view.MainActivity"
             android:exported="true" >

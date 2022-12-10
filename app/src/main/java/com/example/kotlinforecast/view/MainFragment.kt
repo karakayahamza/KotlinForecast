@@ -3,10 +3,12 @@ package com.example.kotlinforecast.view
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.*
+import android.widget.ImageView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import com.example.kotlinforecast.databinding.FragmentMainBinding
 import android.widget.TextView
+import com.bumptech.glide.Glide
 import com.example.kotlinforecast.R
 import com.example.kotlinforecast.model.WeatherModel
 import java.text.SimpleDateFormat
@@ -31,7 +33,7 @@ class MainFragment : Fragment(){
         return newInstance(fragmentTagArg, cityName)
     }
 
-    fun newInstance(tag: String, cityName: String?): MainFragment {
+    private fun newInstance(tag: String, cityName: String?): MainFragment {
         val fragment = MainFragment()
         val args = Bundle()
         args.putString("cityname", cityName)
@@ -77,22 +79,27 @@ class MainFragment : Fragment(){
                 val t: Date = input.parse(convertTime)
                 convertTime = output.format(t)
 
-
+                val iconURL = "http://openweathermap.org/img/w/" + it.weatherList[0].weather!![0].icon + ".png"
 
                 binding.textDay.text = convertTime
                 binding.cityName.text = it.city.name
-                binding.textViewTempeture.text = it.weatherList[0].main?.temp.toString().substringBefore(".")
+                val solution:Double = String.format("%.1f", it.weatherList[0].main?.temp).toDouble()
+                binding.textViewTempeture.text = solution.toString()
                 binding.textHumm.text = it.weatherList[0].main?.humidity.toString()
                 binding.textpressure.text = it.weatherList[0].main?.pressure.toString()
                 binding.textwing.text = it.weatherList[0].wind?.speed.toString()
+                Glide.with(this).load(iconURL).into(binding.mainTempImage)
 
                 // Hourly tempetures
-
                 for (i in 0 until 8) {
-                    val tv :TextView= requireView().findViewById<TextView>(textViews[i]) as TextView
-                    tv.text = it.weatherList[i].main?.temp.toString().substringBefore(".")+"\u2103"
+                    val tv :TextView= requireView().findViewById(textViews[i]) as TextView
+                    val time : TextView = requireView().findViewById(textTimes[i]) as TextView
+                    val tempIcon:ImageView = requireView().findViewById(tempTimesImages[i]) as ImageView
 
-                    val time : TextView = requireView().findViewById<TextView>(textTimes[i]) as TextView
+                    val iconurl = "http://openweathermap.org/img/w/" + it.weatherList[i].weather!![0].icon + ".png"
+                    Glide.with(this).load(iconurl).into(tempIcon)
+
+                    tv.text = it.weatherList[i].main?.temp.toString().substringBefore(".")+"°C"
 
                     @SuppressLint("SimpleDateFormat") val input =
                         SimpleDateFormat("yyyy-MM-dd HH:mm")
@@ -133,12 +140,15 @@ class MainFragment : Fragment(){
 
                     if (convertTime.toString() =="12:00"){
                         val tv :TextView= requireView().findViewById(textDays[a]) as TextView
-                        if (a!=0){
-                            tv.text = convertDay
-                        }
 
-                        val temp :TextView= requireView().findViewById<TextView>(textMinTemps[a]) as TextView
-                        temp.text = it.weatherList[x].main?.temp.toString().substringBefore(".")+"\u2103"
+                        tv.text = convertDay
+
+                        val temp :TextView= requireView().findViewById(textMinTemps[a]) as TextView
+                        temp.text = it.weatherList[x].main?.temp.toString().substringBefore(".")+"°C"
+
+                        val tempIcon:ImageView = requireView().findViewById(tempDaysImages[a]) as ImageView
+                        val icons = "http://openweathermap.org/img/w/" + it.weatherList[x].weather!![0].icon + ".png"
+                        Glide.with(this).load(icons).into(tempIcon)
                         a++
                     }
                 }
@@ -147,10 +157,11 @@ class MainFragment : Fragment(){
 
         viewModel.error.observe(viewLifecycleOwner,{error->
             error?.let {
-                if (!it){
+                if (it){
                     viewModel.weathers.removeObservers(viewLifecycleOwner)
-                    Snackbar.make(binding.root.rootView, "Please check your internet connection.", Snackbar.LENGTH_LONG).show()
+                    Snackbar.make(binding.root.rootView, "Please check your internet connection***.", Snackbar.LENGTH_LONG).show()
                 }
+
             }
         })
     }
@@ -194,4 +205,25 @@ class MainFragment : Fragment(){
         R.id.firstMinTemp4,
         R.id.firstMinTemp5,
         )
+
+
+    private val tempTimesImages = intArrayOf(
+        R.id.imageViewTemp1,
+        R.id.imageViewTemp2,
+        R.id.imageViewTemp3,
+        R.id.imageViewTemp4,
+        R.id.imageViewTemp5,
+        R.id.imageViewTemp6,
+        R.id.imageViewTemp7,
+        R.id.imageViewTemp8,
+        )
+    private val tempDaysImages = intArrayOf(
+        R.id.imageViewTemp10,
+        R.id.imageViewTemp11,
+        R.id.imageViewTemp12,
+        R.id.imageViewTemp13,
+        R.id.imageViewTemp14,
+
+    )
+
 }

@@ -16,7 +16,7 @@ class WeatherViewModel : ViewModel() {
 
 
     val weathers = MutableLiveData<WeatherModel?>()
-    val error = MutableLiveData<Boolean>()
+    val error = MutableLiveData<Boolean?>()
 
     fun loadData(name:String,app_id: String){
         compositeDisposable = CompositeDisposable()
@@ -27,7 +27,7 @@ class WeatherViewModel : ViewModel() {
                 ?.observeOn(AndroidSchedulers.mainThread())
                 ?.subscribe({
                     weathers.value = it
-                    error.value = true
+                    error.value = null
                 },{
                     error.value = false
                 })!!

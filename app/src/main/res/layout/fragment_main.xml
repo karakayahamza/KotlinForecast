@@ -60,6 +60,7 @@
                     android:layout_marginStart="45dp"
                     android:gravity="center"
                     android:shadowColor="@color/black"
+                    android:fontFamily="@font/kiona"
                     android:shadowDx="1"
                     android:shadowDy="1"
                     android:shadowRadius="2"
@@ -67,7 +68,7 @@
                     android:textSize="20sp" />
 
                 <ImageView
-                    android:id="@+id/icon1"
+                    android:id="@+id/imageViewTemp10"
                     android:layout_width="0dp"
                     android:layout_height="50dp"
                     android:layout_weight="1"
@@ -115,7 +116,7 @@
                     android:textSize="20sp" />
 
                 <ImageView
-                    android:id="@+id/icon2"
+                    android:id="@+id/imageViewTemp11"
                     android:layout_width="0dp"
                     android:layout_height="50dp"
                     android:layout_weight="1"
@@ -153,6 +154,7 @@
                     android:layout_marginStart="45dp"
                     android:gravity="center"
                     android:shadowColor="@color/black"
+                    android:fontFamily="@font/kiona"
                     android:shadowDx="1"
                     android:shadowDy="1"
                     android:shadowRadius="2"
@@ -160,7 +162,7 @@
                     android:textSize="20sp" />
 
                 <ImageView
-                    android:id="@+id/icon3"
+                    android:id="@+id/imageViewTemp12"
                     android:layout_width="0dp"
                     android:layout_height="50dp"
                     android:layout_weight="1"
@@ -206,7 +208,7 @@
                     android:textSize="20sp" />
 
                 <ImageView
-                    android:id="@+id/icon4"
+                    android:id="@+id/imageViewTemp13"
                     android:layout_width="0dp"
                     android:layout_height="50dp"
                     android:layout_weight="1"
@@ -244,6 +246,7 @@
                     android:layout_marginStart="45dp"
                     android:gravity="center"
                     android:shadowColor="@color/black"
+                    android:fontFamily="@font/kiona"
                     android:shadowDx="1"
                     android:shadowDy="1"
                     android:shadowRadius="2"
@@ -251,7 +254,7 @@
                     android:textSize="20sp" />
 
                 <ImageView
-                    android:id="@+id/icon5"
+                    android:id="@+id/imageViewTemp14"
                     android:layout_width="0dp"
                     android:layout_height="46dp"
                     android:layout_weight="1"
@@ -303,7 +306,7 @@
                         android:textSize="20sp" />
 
                     <ImageView
-                        android:id="@+id/imageViewTemp2"
+                        android:id="@+id/imageViewTemp1"
                         android:layout_width="50dp"
                         android:layout_height="wrap_content"
                         android:adjustViewBounds="true"
@@ -349,7 +352,7 @@
                         android:textSize="20sp" />
 
                     <ImageView
-                        android:id="@+id/imageViewTemp3"
+                        android:id="@+id/imageViewTemp2"
                         android:layout_width="50dp"
                         android:layout_height="wrap_content"
                         android:adjustViewBounds="true"
@@ -395,7 +398,7 @@
                         android:textSize="20sp" />
 
                     <ImageView
-                        android:id="@+id/imageViewTemp4"
+                        android:id="@+id/imageViewTemp3"
                         android:layout_width="50dp"
                         android:layout_height="wrap_content"
                         android:adjustViewBounds="true"
@@ -441,7 +444,7 @@
                         android:textSize="20sp" />
 
                     <ImageView
-                        android:id="@+id/imageViewTemp5"
+                        android:id="@+id/imageViewTemp4"
                         android:layout_width="50dp"
                         android:layout_height="wrap_content"
                         android:adjustViewBounds="true"
@@ -487,7 +490,7 @@
                         android:textSize="20sp" />
 
                     <ImageView
-                        android:id="@+id/imageViewTemp6"
+                        android:id="@+id/imageViewTemp5"
                         android:layout_width="50dp"
                         android:layout_height="wrap_content"
                         android:adjustViewBounds="true"
@@ -533,7 +536,7 @@
                         android:textSize="20sp" />
 
                     <ImageView
-                        android:id="@+id/imageViewTemp7"
+                        android:id="@+id/imageViewTemp6"
                         android:layout_width="50dp"
                         android:layout_height="wrap_content"
                         android:adjustViewBounds="true"
@@ -579,7 +582,7 @@
                         android:textSize="20sp" />
 
                     <ImageView
-                        android:id="@+id/imageViewTemp8"
+                        android:id="@+id/imageViewTemp7"
                         android:layout_width="50dp"
                         android:layout_height="wrap_content"
                         android:adjustViewBounds="true"
@@ -625,7 +628,7 @@
                         android:textSize="20sp" />
 
                     <ImageView
-                        android:id="@+id/imageViewTemp9"
+                        android:id="@+id/imageViewTemp8"
                         android:layout_width="50dp"
                         android:layout_height="wrap_content"
                         android:adjustViewBounds="true"
@@ -810,7 +813,7 @@
 
 
         <ImageView
-            android:id="@+id/imageView"
+            android:id="@+id/mainTempImage"
             android:layout_width="206dp"
             android:layout_height="63dp"
             android:src="@drawable/sun"
@@ -827,7 +830,7 @@
             app:layout_constraintBottom_toBottomOf="@+id/linerlayoutInfo"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView">
+            app:layout_constraintTop_toBottomOf="@+id/mainTempImage">
 
             <TextView
                 android:id="@+id/textViewTempeture"

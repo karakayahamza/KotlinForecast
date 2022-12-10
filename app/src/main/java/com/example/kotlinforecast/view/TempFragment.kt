@@ -25,7 +25,15 @@ import java.lang.reflect.Type
 import com.example.kotlinforecast.anim.ZoomOutPageTransformer
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.compose.ui.text.toUpperCase
+import androidx.lifecycle.ViewModelProviders
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.kotlinforecast.R
+import com.example.kotlinforecast.adapter.RecyclerViewAdapter
+import com.example.kotlinforecast.model.WeatherModel
+import com.example.kotlinforecast.viewModel.WeatherViewModel
+import com.google.android.material.snackbar.Snackbar
 
 class TempFragment : Fragment() {
     private var _binding: FragmentTempBinding? = null
@@ -33,9 +41,12 @@ class TempFragment : Fragment() {
     private val fragmentTagArg = "tag"
     private lateinit var mCustomPagerAdapter: ViewPagerAdapter
     private lateinit var cld : LiveDataInternetConnections
+    private lateinit var viewModel: WeatherViewModel
     private val mainFragment = MainFragment()
     private lateinit var  toggle : ActionBarDrawerToggle
-
+    var arrayList = arrayListOf<String>()
+    private var layoutManager : RecyclerView.LayoutManager = LinearLayoutManager(context)
+    private var recyclerViewAdapter  : RecyclerViewAdapter? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -51,12 +62,16 @@ class TempFragment : Fragment() {
         return binding.root
     }
 
-    @SuppressLint("CommitPrefEdits")
+    @SuppressLint("CommitPrefEdits", "CutPasteId")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         mCustomPagerAdapter = ViewPagerAdapter(parentFragmentManager, fragmentTagArg)
         binding.pager.adapter = mCustomPagerAdapter
         binding.pager.setPageTransformer(true, ZoomOutPageTransformer())
         binding.pager.offscreenPageLimit = 5
+        binding.navView.getHeaderView(0).findViewById<RecyclerView>(R.id.place_rcyclerview).layoutManager = layoutManager
+
+
+        viewModel = ViewModelProviders.of(this)[WeatherViewModel::class.java]
 
 
         // Save and load data
@@ -67,14 +82,21 @@ class TempFragment : Fragment() {
         val json1 = sharedPreferences.getString("TAG", "")
         val type: Type =
             object : TypeToken<List<String?>?>() {}.type
-        val arrayList: ArrayList<String> =
-            gson1.fromJson(json1, type)
+        if (json1!=""){
+            arrayList = gson1.fromJson(json1, type)
 
-        for (a in arrayList){
-            mCustomPagerAdapter.addPage(mainFragment.newInstance(a))
-            binding.pager.currentItem = 0
-            mCustomPagerAdapter.notifyDataSetChanged()
+            for (a in arrayList){
+                mCustomPagerAdapter.addPage(mainFragment.newInstance(a))
+                binding.pager.currentItem = 0
+                mCustomPagerAdapter.notifyDataSetChanged()
+            }
         }
+
+        recyclerViewAdapter = RecyclerViewAdapter(arrayList)
+
+
+        binding.navView.getHeaderView(0).findViewById<RecyclerView>(R.id.place_rcyclerview).adapter = recyclerViewAdapter
+
         // Internet Check LiveData
         cld = LiveDataInternetConnections(activity?.application!!)
 
@@ -88,20 +110,35 @@ class TempFragment : Fragment() {
         binding.myDrawerLayout.addDrawerListener(toggle)
         toggle.syncState()
 
-
-        binding.navView.getHeaderView(0).findViewById<EditText>(R.id.placeName).setOnFocusChangeListener { _, hasFocus ->
-            if (!hasFocus){
-                val imm = requireActivity().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager?
-                imm!!.hideSoftInputFromWindow(view.windowToken,0)
-            }
-        }
+        //Hide NavigationDrawer
+        hideNavDrawer()
 
         binding.navView.getHeaderView(0).findViewById<Button>(R.id.add_button).setOnClickListener {
-            Toast.makeText(requireContext(),"Helloodaskdasodkas",Toast.LENGTH_SHORT).show()
-            val imm = requireActivity().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager?
-            imm!!.hideSoftInputFromWindow(view.windowToken,0)
 
+           val placeName = binding.navView.getHeaderView(0).findViewById<EditText>(R.id.placeName).text.toString()
+
+            //Check place is valid.
+            viewModel.loadData(placeName,"61e8b0259c092b1b9a15474cd800ee25")
+
+            if (observeLiveData() != null){
+                if (!(arrayList.contains(placeName.uppercase()))){
+                    mCustomPagerAdapter.addPage(mainFragment.newInstance(placeName))
+                    binding.pager.currentItem = mCustomPagerAdapter.count
+                    arrayList.add(placeName.uppercase())
+
+                    val gson = Gson()
+                    val json = gson.toJson(arrayList)
+
+                    sharedPreferences.edit().putString("TAG",json).apply()
+                    mCustomPagerAdapter.notifyDataSetChanged()
+                }
+                else{
+                    Snackbar.make(binding.root.rootView, "Please check your internet connection or try another place name.", Snackbar.LENGTH_LONG).show()
+                }
+            }
+            hideNavDrawer()
         }
+
 
         binding.navView.setNavigationItemSelectedListener {
             when(it.itemId){
@@ -250,5 +287,35 @@ class TempFragment : Fragment() {
             }
         }
         return false
+    }
+
+    /// Error false geldikten sonra null gelmiyor. İlk önce kabul gören bir yer ismi girip sonra kabul görmeyen bir yer ismi girince yinede sayfayı oluşturuyor.
+
+    private fun observeLiveData(): Boolean? {
+        viewModel.error.observe(viewLifecycleOwner,{error->
+            error?.let {
+                if (viewModel.error.value==null){
+                    viewModel.weathers.removeObservers(viewLifecycleOwner)
+                    Snackbar.make(binding.root.rootView, "Please check your internet connection**.", Snackbar.LENGTH_LONG).show()
+                }
+            }
+        })
+        println(viewModel.error.value)
+        viewModel.weathers.removeObservers(viewLifecycleOwner)
+        return viewModel.error.value
+    }
+
+    private fun hideNavDrawer(){
+        binding.navView.getHeaderView(0).findViewById<EditText>(R.id.placeName).setOnFocusChangeListener { _, hasFocus ->
+            if (!hasFocus){
+                val imm = requireActivity().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager?
+                imm!!.hideSoftInputFromWindow(view?.windowToken,0) }
+        }
+
+        binding.navView.getHeaderView(0).findViewById<Button>(R.id.add_button).setOnFocusChangeListener { _, hasFocus ->
+            if (!hasFocus){
+                val imm = requireActivity().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager?
+                imm!!.hideSoftInputFromWindow(view?.windowToken,0) }
+        }
     }
 }
